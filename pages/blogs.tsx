@@ -112,10 +112,8 @@ const Pagination: React.FC<{
   );
 };
 
-const BlogsPage: React.FC = () => {
+export default function BlogsPage() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const postsPerPage = 6;
 
   const allPosts: BlogPost[] = [
@@ -256,20 +254,9 @@ const BlogsPage: React.FC = () => {
       image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
-  
-  // Get unique categories
-  const categories = ['All', ...Array.from(new Set(allPosts.map(post => post.category)))];
-  
-  // Filter posts based on search and category
-  const filteredPosts = allPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
 
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  const currentPosts = filteredPosts.slice(
+  const totalPages = Math.ceil(allPosts.length / postsPerPage);
+  const currentPosts = allPosts.slice(
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
@@ -288,106 +275,35 @@ const BlogsPage: React.FC = () => {
         <Header />
         
         {/* Hero Section */}
-        <div className="relative pt-28 pb-16 overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img 
-              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
-              alt="Blog hero background"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/50"></div>
-          </div>
-          
-          {/* Content */}
-          <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+        <div className="pt-20 pb-16 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               All Blog Posts
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover insights, tips, and stories across various topics including technology, business, lifestyle, and creativity.
             </p>
-            
-            {/* Search and Filter */}
-            <div className="max-w-2xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-4 mb-6">
-                {/* Search */}
-                <div className="relative flex-1">
-                  <input
-                    type="text"
-                    placeholder="Search articles..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-3 border border-white/20 rounded-xl text-white placeholder-white/60 bg-white/10 backdrop-blur-sm focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition-all duration-300"
-                  />
-                </div>
-                
-                {/* Category Filter */}
-                <div className="relative">
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="px-4 py-3 border border-white/20 rounded-xl text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition-all duration-300 appearance-none cursor-pointer min-w-[150px]"
-                  >
-                    {categories.map(category => (
-                      <option key={category} value={category} className="bg-gray-800 text-white">
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Results count */}
-              <p className="text-white/70 text-sm mb-8">
-                Showing {filteredPosts.length} of {allPosts.length} articles
-              </p>
-            </div>
-          </div>
-          
-          {/* Wave decoration */}
-          <div className="absolute bottom-0 left-0 w-full">
-            <svg className="relative block w-full h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
-            </svg>
           </div>
         </div>
 
         {/* Blog Grid */}
         <div className="max-w-6xl mx-auto px-6 py-16">
-          {filteredPosts.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-xl text-gray-500">No articles found matching your criteria.</p>
-            </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {currentPosts.map((post, index) => (
-                  <BlogCard key={index} {...post} />
-                ))}
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentPosts.map((post, index) => (
+              <BlogCard key={index} {...post} />
+            ))}
+          </div>
 
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={setCurrentPage}
-                />
-              )}
-            </>
-          )}
+          {/* Pagination */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </div>
 
         <Footer socialLinks={[]} />
       </main>
     </>
   );
-};
-
-export default BlogsPage;
+}
