@@ -38,7 +38,7 @@ const YouTubePlaylists: React.FC = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             YouTube{" "}
-            <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent">
               Playlists
             </span>
           </h2>
@@ -64,12 +64,12 @@ const YouTubePlaylists: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-red-600 rounded-full p-4">
+                    <div className="bg-primary-600 rounded-full p-4">
                       <Play className="w-6 h-6 text-white fill-current" />
                     </div>
                   </div>
                   <div className="absolute top-3 left-3">
-                    <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                    <span className="bg-primary-600 text-white text-xs px-2 py-1 rounded-full font-medium">
                       {playlist.category}
                     </span>
                   </div>
@@ -82,7 +82,7 @@ const YouTubePlaylists: React.FC = () => {
 
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {playlist.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
@@ -92,7 +92,7 @@ const YouTubePlaylists: React.FC = () => {
                     href={playlist.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium text-sm transition-colors mt-auto"
+                    className="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium text-sm transition-colors mt-auto"
                   >
                     <Play size={16} />
                     Watch Playlist
@@ -108,7 +108,7 @@ const YouTubePlaylists: React.FC = () => {
               href="https://www.youtube.com/@TheFunnelEffect/playlists"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium transition-colors"
+              className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition-colors"
             >
               Visit Channel for More Playlists →
             </a>

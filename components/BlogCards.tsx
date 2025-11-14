@@ -21,7 +21,7 @@ const BlogCard: React.FC<{
           }}
         />
         <div className="absolute top-4 left-4">
-          <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">{category}</span>
+          <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">{category}</span>
         </div>
       </div>
       
@@ -32,7 +32,7 @@ const BlogCard: React.FC<{
           <span>{readTime}</span>
         </div>
         
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors duration-200 leading-tight">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight">
           <Link href={`/blogs/${slug}`}>
             {title}
           </Link>
@@ -44,7 +44,7 @@ const BlogCard: React.FC<{
         
         <Link 
           href={`/blogs/${slug}`}
-          className="text-red-500 hover:text-red-600 dark:hover:text-red-400 font-medium text-sm transition-colors inline-flex items-center"
+          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 font-medium text-sm transition-colors inline-flex items-center"
         >
           Continue Reading
           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ const BlogCards: React.FC<{ limit?: number; showViewAll?: boolean }> = ({ limit,
         <div className="text-center mt-8">
           <Link 
             href="/blogs"
-            className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-0.5 inline-flex items-center"
+            className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5 inline-flex items-center"
           >
             View All Blogs
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

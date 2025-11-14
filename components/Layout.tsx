@@ -40,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({
       
       <main className={`${className} pb-16 md:pb-0`}>
         <Header />
-        <div className="pt-14 md:pt-16">
+        <div className="pt-0 md:pt-0">
           {children}
         </div>
         <Footer socialLinks={[]} />

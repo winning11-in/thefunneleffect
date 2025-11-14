@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Hero: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/blogs" className="btn-primary">
+            <Link href="/blogs" className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full font-semibold transition-colors">
               Start Learning
             </Link>
           
@@ -38,19 +38,19 @@ const Hero: React.FC = () => {
           <div className="pt-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">100+</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary-400">100+</div>
                 <div className="text-sm text-white/80 uppercase tracking-wide">Tutorials</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">25k+</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary-400">25k+</div>
                 <div className="text-sm text-white/80 uppercase tracking-wide">Learners</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">15+</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary-400">15+</div>
                 <div className="text-sm text-white/80 uppercase tracking-wide">Topics</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">5+</div>
+                <div className="text-2xl md:text-3xl font-bold text-primary-400">5+</div>
                 <div className="text-sm text-white/80 uppercase tracking-wide">Years</div>
               </div>
             </div>
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
         </div>

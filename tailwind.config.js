@@ -13,6 +13,18 @@ module.exports = {
         serif: ['Poppins', 'serif'],
       },
       colors: {
+        primary: {
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6', // Main primary blue
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
         red: {
           50: '#fef2f2',
           100: '#fee2e2',

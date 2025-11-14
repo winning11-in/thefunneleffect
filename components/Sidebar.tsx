@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
       {/* About Widget */}
       <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
         <div className="text-center">
-          <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center">
+                    <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
             <span className="text-base font-bold text-white">F</span>
           </div>
           <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2">Funnel Effect.</h3>
@@ -52,7 +52,7 @@ const Sidebar: React.FC = () => {
             guides, and resources to help you master coding skills and advance your tech career.
           </p>
           <div className="flex justify-center space-x-2">
-            <a href="#" className="w-7 h-7 bg-gray-100 dark:bg-gray-800 hover:bg-red-500 hover:text-white rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
+            <a href="#" className="w-7 h-7 bg-gray-100 dark:bg-gray-800 hover:bg-primary-600 hover:text-white rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
               </svg>
@@ -80,13 +80,13 @@ const Sidebar: React.FC = () => {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors line-clamp-2 mb-1">
+                                    <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 mb-1">
                     <Link href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
                       {post.title}
                     </Link>
                   </h4>
                   <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                    <span className="bg-red-500 text-white px-2 py-1 rounded-full text-xs">{post.category}</span>
+                    <span className="bg-primary-600 text-white px-2 py-1 rounded-full text-xs">{post.category}</span>
                     <span className="ml-2 text-xs">{post.date}</span>
                   </div>
                 </div>
@@ -104,10 +104,10 @@ const Sidebar: React.FC = () => {
             <div key={index}>
               <Link 
                 href={`/category/${category.name.toLowerCase()}`}
-                className="flex items-center justify-between py-1.5 text-gray-700 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 transition-colors group"
+                className="flex items-center justify-between py-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
               >
                 <span className="text-xs font-medium">{category.name}</span>
-                <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full group-hover:bg-red-50 dark:group-hover:bg-red-900/30 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+                <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {category.count}
                 </span>
               </Link>
@@ -130,7 +130,7 @@ const Sidebar: React.FC = () => {
           />
           <button 
             type="submit"
-            className="w-full bg-white dark:bg-red-600 text-red-500 dark:text-white font-medium py-2.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-700 transition-colors text-sm"
+            className="w-full bg-white dark:bg-primary-600 text-primary-600 dark:text-white font-medium py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-primary-700 transition-colors text-sm"
           >
             Subscribe
           </button>

@@ -32,7 +32,7 @@ const Header: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 font-medium"
+                                    className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
                 >
                   {item.name}
                 </Link>

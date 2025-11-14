@@ -10,8 +10,7 @@ export default function Home() {
     <Layout>
       <Hero />
 
-      {/* YouTube Playlists Section */}
-      <YouTubePlaylists />
+       <YouTubePlaylists />
 
       {/* Latest Blog Posts Section */}
       <div className="max-w-6xl mx-auto px-6 py-12 bg-white dark:bg-black transition-colors duration-300">
