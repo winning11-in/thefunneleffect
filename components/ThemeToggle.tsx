@@ -11,8 +11,8 @@ export default function ThemeToggle() {
         onClick={() => setTheme('light')}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === 'light'
-            ? 'bg-white dark:bg-black shadow-md text-red-500'
-            : 'text-gray-500 dark:text-gray-400 hover:text-red-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+            ? 'bg-white dark:bg-black shadow-md text-primary-500'
+            : 'text-gray-500 dark:text-gray-400 hover:text-primary-500 hover:bg-gray-200 dark:hover:bg-gray-700'
         }`}
         title="Light mode"
       >
@@ -22,8 +22,8 @@ export default function ThemeToggle() {
         onClick={() => setTheme('system')}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === 'system'
-            ? 'bg-white dark:bg-black shadow-md text-red-500'
-            : 'text-gray-500 dark:text-gray-400 hover:text-red-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+            ? 'bg-white dark:bg-black shadow-md text-primary-500'
+            : 'text-gray-500 dark:text-gray-400 hover:text-primary-500 hover:bg-gray-200 dark:hover:bg-gray-700'
         }`}
         title="System mode"
       >
@@ -33,8 +33,8 @@ export default function ThemeToggle() {
         onClick={() => setTheme('dark')}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === 'dark'
-            ? 'bg-white dark:bg-black shadow-md text-red-500'
-            : 'text-gray-500 dark:text-gray-400 hover:text-red-500 hover:bg-gray-200 dark:hover:bg-gray-700'
+            ? 'bg-white dark:bg-black shadow-md text-primary-500'
+            : 'text-gray-500 dark:text-gray-400 hover:text-primary-500 hover:bg-gray-200 dark:hover:bg-gray-700'
         }`}
         title="Dark mode"
       >

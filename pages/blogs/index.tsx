@@ -5,27 +5,33 @@ import { getBlogPosts, getCategories } from '@/data/blogPosts';
 import { BlogPost } from '@/types';
 
 const BlogCard: React.FC<BlogPost> = ({ title, excerpt, category, readTime, date, image, slug }) => {
+  // Truncate title to maximum 2 lines (approximately 80 characters)
+  const truncatedTitle = title.length > 80 ? title.substring(0, 80).trim() + '...' : title;
+  
+  // Truncate excerpt to maximum 3 lines (approximately 120 characters)
+  const truncatedExcerpt = excerpt.length > 120 ? excerpt.substring(0, 120).trim() + '...' : excerpt;
+  
   return (
     <Link href={`/blogs/${slug}`}>
-      <article className="bg-white dark:bg-black rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800 cursor-pointer">
-        <div className="relative h-56 overflow-hidden">
+      <article className="bg-white dark:bg-black rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800 cursor-pointer h-full flex flex-col">
+        <div className="relative h-56 overflow-hidden flex-shrink-0">
           <img 
             src={image} 
             alt={title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <span className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
+          <span className="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
             {category}
           </span>
         </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors duration-200 leading-tight">
-            {title}
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight h-[3.5rem] overflow-hidden">
+            {truncatedTitle}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-            {excerpt}
+          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed flex-1 h-[4.5rem] overflow-hidden">
+            {truncatedExcerpt}
           </p>
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-3">
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-3 mt-auto">
             <span>{date}</span>
             <span>•</span>
             <span>{readTime}</span>
@@ -69,7 +75,7 @@ const Pagination: React.FC<{
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-4 py-2 text-gray-600 hover:text-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-4 py-2 text-gray-600 hover:text-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Previous
       </button>
@@ -81,10 +87,10 @@ const Pagination: React.FC<{
           disabled={page === '...'}
           className={`px-4 py-2 rounded-full transition-colors ${
             page === currentPage
-              ? 'bg-red-500 text-white'
+              ? 'bg-primary-500 text-white'
               : page === '...'
               ? 'text-gray-400 cursor-default'
-              : 'text-gray-600 hover:text-red-500 hover:bg-red-50'
+              : 'text-gray-600 hover:text-primary-500 hover:bg-primary-50'
           }`}
         >
           {page}
@@ -94,7 +100,7 @@ const Pagination: React.FC<{
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 text-gray-600 hover:text-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-4 py-2 text-gray-600 hover:text-primary-500 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Next
       </button>
@@ -165,7 +171,7 @@ const BlogsPage: React.FC = () => {
                     placeholder="Search articles..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-3 border border-white/20 rounded-xl text-white placeholder-white/60 bg-white/10 backdrop-blur-sm focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition-all duration-300"
+                    className="w-full px-4 py-3 border border-white/20 rounded-xl text-white placeholder-white/60 bg-white/10 backdrop-blur-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 transition-all duration-300"
                   />
                 </div>
                 
@@ -174,7 +180,7 @@ const BlogsPage: React.FC = () => {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="px-4 py-3 border border-white/20 rounded-xl text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/30 transition-all duration-300 appearance-none cursor-pointer min-w-[150px]"
+                    className="px-4 py-3 border border-white/20 rounded-xl text-white bg-white/10 backdrop-blur-sm focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/30 transition-all duration-300 appearance-none cursor-pointer min-w-[150px]"
                   >
                     {categories.map(category => (
                       <option key={category} value={category} className="bg-gray-800 text-white">

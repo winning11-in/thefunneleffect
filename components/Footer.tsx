@@ -23,10 +23,8 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
           {/* Brand section */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">F</span>
-              </div>
-              <span className="text-white text-2xl font-bold">Funnel Effect</span>
+            
+              <span className="text-white text-2xl font-bold">The Funnel Effect</span>
             </div>
             <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed max-w-md">
               Your ultimate destination for learning programming, web development, and technology skills. 

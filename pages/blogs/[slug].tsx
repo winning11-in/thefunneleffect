@@ -28,7 +28,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
             <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
             <Link 
               href="/blogs"
-              className="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-0.5"
+              className="inline-flex items-center bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Blogs
@@ -80,7 +80,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
           <div className="mb-8">
             <Link 
               href="/blogs"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 group"
+              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200 group"
             >
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Blogs
@@ -89,7 +89,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
 
           {/* Category Badge */}
           <div className="mb-6">
-            <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium uppercase tracking-wide">
+            <span className="bg-primary-500 text-white px-4 py-2 rounded-full text-sm font-medium uppercase tracking-wide">
               {post.category}
             </span>
           </div>
@@ -177,7 +177,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
               <div className="flex gap-3">
                 <button
                   onClick={handleShare}
-                  className="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-0.5"
+                  className="inline-flex items-center bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5"
                 >
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
