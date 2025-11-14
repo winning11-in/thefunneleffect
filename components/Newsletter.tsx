@@ -26,80 +26,72 @@ const Newsletter: React.FC = () => {
   };
 
   return (
-    <section id="newsletter" className="section-padding bg-white dark:bg-gray-800">
+    <section id="newsletter" className="py-16 bg-neutral-50 dark:bg-neutral-800">
       <div className="container mx-auto container-padding">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass rounded-3xl p-8 lg:p-12 text-center relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/5 dark:to-purple-500/5" />
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl" />
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl" />
+        <div className="max-w-lg mx-auto">
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-700">
             
-            <div className="relative z-10">
-              {/* Icon */}
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6 shadow-lg">
-                <Mail className="w-8 h-8 text-white" />
-              </div>
-
-              {/* Title */}
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                Stay <span className="gradient-text">Updated</span>
-              </h2>
-
-              {/* Description */}
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Get the latest episodes, articles, and tech insights delivered straight to your inbox. 
-                Join thousands of developers who never miss an update.
-              </p>
-
-              {/* Email form */}
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <div className="flex-1">
-                    <label htmlFor="email" className="sr-only">
-                      Email address
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email address"
-                      className="w-full px-4 py-4 bg-white dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
-                      required
-                      disabled={isSubmitting || isSubmitted}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || isSubmitted}
-                    className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed min-w-[120px]"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Subscribing...
-                      </>
-                    ) : isSubmitted ? (
-                      <>
-                        <CheckCircle className="w-5 h-5" />
-                        Subscribed!
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5" />
-                        Subscribe
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-
-              {/* Privacy note */}
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-6">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
+            {/* Decorative wave */}
+            <div className="mb-6">
+              <svg className="w-full h-4 text-coral-500" viewBox="0 0 100 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 5C10 0 20 10 30 5C40 0 50 10 60 5C70 0 80 10 90 5C95 2.5 100 7.5 100 5V10H0V5Z" fill="currentColor"/>
+              </svg>
             </div>
+
+            {/* Title */}
+            <h3 className="heading-sm text-center mb-4">Newsletter</h3>
+
+            {/* Description */}
+            <p className="text-center text-body mb-6 text-sm">
+              Join 70,000 subscribers! Get the latest insights delivered to your inbox.
+            </p>
+
+            {/* Email form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  className="w-full px-4 py-3 bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:border-coral-500 focus:ring-1 focus:ring-coral-500 transition-all duration-200"
+                  required
+                  disabled={isSubmitting || isSubmitted}
+                />
+              </div>
+              
+              <button
+                type="submit"
+                disabled={isSubmitting || isSubmitted}
+                className="w-full btn-coral disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
+                    Subscribing...
+                  </span>
+                ) : isSubmitted ? (
+                  <span className="flex items-center justify-center">
+                    <CheckCircle className="w-4 h-4 mr-2" />
+                    Subscribed!
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center">
+                    <Send className="w-4 h-4 mr-2" />
+                    Sign Up
+                  </span>
+                )}
+              </button>
+            </form>
+
+            {/* Privacy note */}
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 text-center mt-4">
+              By signing up, you agree to our Privacy Policy
+            </p>
           </div>
         </div>
       </div>

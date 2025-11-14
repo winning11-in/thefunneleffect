@@ -1,99 +1,87 @@
-import React from 'react'
-import Link from 'next/link'
-import { Play, ChevronDown, Headphones, Users, TrendingUp, BookOpen } from 'lucide-react'
+import React from 'react';
+import Link from 'next/link';
 
-export default function Hero() {
+const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20" />
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')"
+        }}
+      ></div>
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-2xl" />
-      </div>
-
-      <div className="relative z-10 container mx-auto container-padding text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-            <span>New Episode Every Week</span>
-          </div>
-
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-            <span className="block text-gray-900 dark:text-white">
-              Listen. Learn.
-            </span>
-            <span className="block gradient-text">
-              Level Up.
-            </span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            Welcome to <span className="font-semibold text-blue-600 dark:text-blue-400">The Funnel Effect</span> - 
-            your tech podcast sharing insights, stories, and resources that transform developers into industry leaders.
-          </p>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-              <Headphones className="w-5 h-5 text-blue-500" />
-              <span className="font-semibold">10K+ Listeners</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-              <Users className="w-5 h-5 text-purple-500" />
-              <span className="font-semibold">50+ Episodes</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-              <TrendingUp className="w-5 h-5 text-green-500" />
-              <span className="font-semibold">100+ Articles</span>
-            </div>
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+        <div className="space-y-8">
+          {/* Main Heading */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="font-serif">I'm Funnel Effect.</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+              Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle.
+              <br />She helps brands bring the right content to the right people.
+            </p>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style={{ animationDelay: '0.6s' }}>
-            <button className="btn-primary group flex items-center space-x-2 text-lg">
-              <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="currentColor" />
-              <span>Start Listening</span>
-            </button>
-            <Link href="/blogs" className="btn-secondary flex items-center space-x-2 text-lg">
-              <BookOpen className="w-5 h-5" />
-              <span>Read Blogs</span>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="/about" className="btn-primary">
+              About Me
             </Link>
           </div>
 
-          {/* Platforms */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Available on all major platforms
-            </p>
-            <div className="flex justify-center items-center space-x-6 opacity-70 hover:opacity-100 transition-opacity duration-300">
-              <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">S</span>
+          {/* Stats */}
+          <div className="pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-red-400">50+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Stories</div>
               </div>
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">A</span>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-red-400">10k+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Readers</div>
               </div>
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">G</span>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-red-400">5+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Awards</div>
               </div>
-              <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs font-bold">Y</span>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-red-400">2</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Years</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-6 h-6 text-gray-400 dark:text-gray-500" />
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
+        </div>
       </div>
-    </section>
-  )
-}
+
+      {/* Curved Wave Bottom */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg 
+          className="relative block w-full h-16 md:h-20 lg:h-24 text-white" 
+          data-name="Layer 1" 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 1200 120" 
+          preserveAspectRatio="none"
+        >
+          <path 
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" 
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
+            

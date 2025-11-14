@@ -1,100 +1,99 @@
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { Menu, X, Headphones } from 'lucide-react'
-import ThemeToggle from './ThemeToggle'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+const Header: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Episodes', href: '#episodes' },
-    { name: 'Blog', href: '/blogs' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ]
+    { name: 'Inspiration', href: '/posts' },
+    { name: 'Pages', href: '/categories' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-      <div className="container mx-auto container-padding">
-        <div className="flex items-center justify-between h-16">
+    <header className="absolute top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg group-hover:scale-105 transition-transform duration-200">
-              <Headphones className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold gradient-text hidden sm:block">
-              The Funnel Effect
-            </span>
-          </Link>
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+                <span className="text-white font-bold text-xl">F</span>
+              </div>
+              <span className="text-white text-2xl font-bold font-serif">Funnel Effect</span>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="nav-link relative group"
+                className="nav-link"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </nav>
 
-          {/* Right side */}
-          <div className="flex items-center space-x-4">
-            {/* Theme Toggle */}
-            <ThemeToggle />
-            
-            {/* CTA Button */}
-            <Link
-              href="#newsletter"
-              className="hidden sm:inline-flex btn-primary text-sm px-4 py-2"
-            >
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center">
+            <Link href="/subscribe" className="btn-secondary">
               Subscribe
             </Link>
+          </div>
 
-            {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
+          <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white hover:text-red-400 transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-lg">
-            <nav className="container-padding py-4">
-              <div className="flex flex-col space-y-4">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="nav-link py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <Link
-                    href="#newsletter"
-                    className="btn-primary w-full text-center inline-block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Subscribe to Newsletter
-                  </Link>
-                </div>
-              </div>
-            </nav>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden">
+          <div className="bg-black/90 backdrop-blur-md">
+            <div className="px-4 pt-2 pb-6 space-y-3">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-3 py-2 text-white hover:text-red-400 transition-colors font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4">
+                <Link 
+                  href="/subscribe" 
+                  className="btn-secondary w-full text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Subscribe
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
-  )
-}
+  );
+};
+
+export default Header;
+ 
