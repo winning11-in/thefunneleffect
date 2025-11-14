@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import LatestEpisode from '@/components/LatestEpisode';
 import BlogSection from '@/components/BlogSection';
@@ -25,7 +26,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Header />
         <Hero />
         <LatestEpisode episode={latestEpisode} />
         <BlogSection posts={blogPosts} />
