@@ -8,7 +8,7 @@ const YouTubePlaylists: React.FC = () => {
       title: "Web Performance Optimization",
       description: "Learn how to optimize your web applications for better performance and user experience",
       thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=225&fit=crop&crop=center",
-      videoCount: "12 videos",
+      videoCount: "14 videos",
       url: "https://www.youtube.com/watch?v=RqKA_TJKuFE&list=PLJ6UMyI6HnLFHSQOrfwhf3C7pZC6OzZYt",
       category: "Web Development"
     },
@@ -16,7 +16,7 @@ const YouTubePlaylists: React.FC = () => {
       title: "React Advanced Concepts",
       description: "Master advanced React patterns, hooks, and performance optimization techniques",
       thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=225&fit=crop&crop=center",
-      videoCount: "18 videos",
+      videoCount: "87 videos",
       url: "https://www.youtube.com/watch?v=r384pWZIL_s&list=PLJ6UMyI6HnLFFvoMt9skouZRc1IFrgRgw",
       category: "React"
     },
@@ -24,7 +24,7 @@ const YouTubePlaylists: React.FC = () => {
       title: "Machine Learning Fundamentals",
       description: "Complete guide to machine learning algorithms and practical implementations",
       thumbnail: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=225&fit=crop&crop=center",
-      videoCount: "15 videos",
+      videoCount: "4 videos",
       url: "https://www.youtube.com/watch?v=yeufmGYwfkU&list=PLJ6UMyI6HnLGEkdvBf_pMpuszVw2dqfW5",
       category: "ML/AI"
     },
