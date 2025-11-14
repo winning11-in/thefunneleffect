@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({
   ogTitle,
   ogDescription,
   ogImage,
-  className = "min-h-screen bg-white"
+  className = "min-h-screen bg-white dark:bg-black"
 }) => {
   return (
     <>

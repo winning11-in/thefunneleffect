@@ -17,7 +17,7 @@ const iconMap = {
 
 const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
   return (
-    <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-900 dark:bg-black text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand section */}
@@ -28,21 +28,21 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               </div>
               <span className="text-white text-2xl font-bold">Funnel Effect</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed max-w-md">
+            <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed max-w-md">
               Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle. 
               She helps brands bring the right content to the right people.
             </p>
             <div className="flex items-center gap-4">
               <a
                 href="#"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gray-700 hover:bg-red-600 rounded-lg transition-all duration-300 hover:scale-110"
+                className="inline-flex items-center justify-center w-10 h-10 bg-gray-700 dark:bg-gray-800 hover:bg-red-600 rounded-lg transition-all duration-300 hover:scale-110"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5 text-white" />
               </a>
               <a
                 href="#"
-                className="inline-flex items-center justify-center w-10 h-10 bg-gray-700 hover:bg-red-600 rounded-lg transition-all duration-300 hover:scale-110"
+                className="inline-flex items-center justify-center w-10 h-10 bg-gray-700 dark:bg-gray-800 hover:bg-red-600 rounded-lg transition-all duration-300 hover:scale-110"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-white" />
@@ -57,7 +57,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               <li>
                 <Link 
                   href="/" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-300"
+                  className="flex items-center gap-2 text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300"
                 >
                   <Home className="w-4 h-4" />
                   Home
@@ -66,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               <li>
                 <Link 
                   href="/blogs" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-300"
+                  className="flex items-center gap-2 text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300"
                 >
                   <BookOpen className="w-4 h-4" />
                   Blogs
@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               <li>
                 <Link 
                   href="/contact" 
-                  className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-300"
+                  className="flex items-center gap-2 text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4" />
                   Contact
@@ -87,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
           {/* Newsletter signup */}
           <div>
             <h4 className="text-white font-semibold mb-4">Stay Connected</h4>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 dark:text-gray-400 text-sm mb-4">
               Get notified about new stories and insights.
             </p>
             <button className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
         </div>
 
         {/* Copyright section */}
-        <div className="pt-8 border-t border-gray-700">
+        <div className="pt-8 border-t border-gray-700 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-300 text-sm">
               © {new Date().getFullYear()} Funnel Effect. All rights reserved.

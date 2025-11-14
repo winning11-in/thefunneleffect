@@ -74,13 +74,13 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       </Head>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-24 pb-16">
+      <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-black pt-24 pb-16">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Back Button */}
           <div className="mb-8">
             <Link 
               href="/blogs"
-              className="inline-flex items-center text-gray-600 hover:text-red-500 transition-colors duration-200 group"
+              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200 group"
             >
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
               Back to Blogs
@@ -95,20 +95,20 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
             {post.title}
           </h1>
 
           {/* Excerpt */}
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
             {post.excerpt}
           </p>
 
           {/* Meta Information */}
-          <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-8">
+          <div className="flex flex-wrap items-center gap-6 text-gray-500 dark:text-gray-400 mb-8">
             <div className="flex items-center">
               <User className="w-5 h-5 mr-2" />
-              <span className="font-medium text-gray-700">{post.author}</span>
+              <span className="font-medium text-gray-700 dark:text-gray-300">{post.author}</span>
             </div>
             <div className="flex items-center">
               <Calendar className="w-5 h-5 mr-2" />
@@ -128,7 +128,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
           <div className="flex gap-4">
             <button
               onClick={handleShare}
-              className="inline-flex items-center bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-full font-medium border border-gray-200 transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+              className="inline-flex items-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-full font-medium border border-gray-200 dark:border-gray-600 transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
             >
               <Share2 className="w-4 h-4 mr-2" />
               Share Article
@@ -141,7 +141,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       {post.image && (
         <div className="relative">
           <div className="container mx-auto px-4 max-w-4xl -mt-8">
-            <div className="relative overflow-hidden rounded-xl shadow-2xl bg-white p-2">
+            <div className="relative overflow-hidden rounded-xl shadow-2xl bg-white dark:bg-black p-2">
               <img
                 src={post.image}
                 alt={post.title}
@@ -156,9 +156,9 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       {/* Article Content */}
       <article className="py-16">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="prose prose-lg prose-gray max-w-none">
+          <div className="prose prose-lg prose-gray dark:prose-invert max-w-none">
             <div 
-              className="blog-content text-gray-700 leading-relaxed"
+              className="blog-content text-gray-700 dark:text-gray-300 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
@@ -166,13 +166,13 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       </article>
 
       {/* Article Footer */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50 dark:bg-black py-12">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+          <div className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-sm border border-gray-100 dark:border-gray-800">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Enjoyed this article?</h3>
-                <p className="text-gray-600">Share it with your network or subscribe for more insights.</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Enjoyed this article?</h3>
+                <p className="text-gray-600 dark:text-gray-400">Share it with your network or subscribe for more insights.</p>
               </div>
               <div className="flex gap-3">
                 <button
@@ -184,7 +184,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
                 </button>
                 <Link
                   href="/blogs"
-                  className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+                  className="inline-flex items-center bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
                 >
                   More Articles
                 </Link>

@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Curved Wave Bottom */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+      {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
         <svg 
           className="relative block w-full h-16 md:h-20 lg:h-24 text-white" 
           data-name="Layer 1" 
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
             fill="currentColor"
           />
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 };

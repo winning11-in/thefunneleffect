@@ -7,7 +7,7 @@ import { BlogPost } from '@/types';
 const BlogCard: React.FC<BlogPost> = ({ title, excerpt, category, readTime, date, image, slug }) => {
   return (
     <Link href={`/blogs/${slug}`}>
-      <article className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group border border-gray-100 cursor-pointer">
+      <article className="bg-white dark:bg-black rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800 cursor-pointer">
         <div className="relative h-56 overflow-hidden">
           <img 
             src={image} 
@@ -19,13 +19,13 @@ const BlogCard: React.FC<BlogPost> = ({ title, excerpt, category, readTime, date
           </span>
         </div>
         <div className="p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-500 transition-colors duration-200 leading-tight">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors duration-200 leading-tight">
             {title}
           </h3>
-          <p className="text-gray-600 mb-4 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
             {excerpt}
           </p>
-          <div className="flex items-center text-sm text-gray-500 space-x-3">
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-3">
             <span>{date}</span>
             <span>•</span>
             <span>{readTime}</span>
@@ -197,19 +197,14 @@ const BlogsPage: React.FC = () => {
             </div>
           </div>
           
-          {/* Wave decoration */}
-          <div className="absolute bottom-0 left-0 w-full">
-            <svg className="relative block w-full h-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-              <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
-            </svg>
-          </div>
+        
         </div>
 
         {/* Blog Grid */}
-        <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="max-w-6xl mx-auto px-6 py-16 bg-white dark:bg-black transition-colors duration-300">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-xl text-gray-500">No articles found matching your criteria.</p>
+              <p className="text-xl text-gray-500 dark:text-gray-400">No articles found matching your criteria.</p>
             </div>
           ) : (
             <>
