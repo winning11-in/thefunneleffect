@@ -38,9 +38,11 @@ const Layout: React.FC<LayoutProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <main className={className}>
+      <main className={`${className} pb-16 md:pb-0`}>
         <Header />
-        {children}
+        <div className="pt-14 md:pt-16">
+          {children}
+        </div>
         <Footer socialLinks={[]} />
       </main>
     </>

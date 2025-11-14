@@ -51,11 +51,11 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{new Date(post.publishDate).toLocaleDateString('en-US', { 
+                    {/* <span>{new Date(post?.publishDate).toLocaleDateString('en-US', { 
                       month: 'short', 
                       day: 'numeric',
                       year: 'numeric'
-                    })}</span>
+                    })}</span> */}
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
