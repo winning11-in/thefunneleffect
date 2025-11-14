@@ -29,8 +29,8 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               <span className="text-white text-2xl font-bold">Funnel Effect</span>
             </div>
             <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed max-w-md">
-              Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle. 
-              She helps brands bring the right content to the right people.
+              Your ultimate destination for learning programming, web development, and technology skills. 
+              We provide comprehensive tutorials and guides to help you master coding and advance your tech career.
             </p>
             <div className="flex items-center gap-4">
               <a

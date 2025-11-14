@@ -36,28 +36,28 @@ export const recentEpisodes: Episode[] = [
 
 export const features: Feature[] = [
   {
-    id: "podcasts",
-    title: "Expert Podcasts",
-    description: "Deep-dive conversations with industry leaders, sharing insights and experiences from the trenches of tech.",
-    icon: "Headphones"
-  },
-  {
-    id: "articles",
-    title: "Technical Articles",
-    description: "In-depth articles covering the latest technologies, best practices, and emerging trends in software development.",
+    id: "tutorials",
+    title: "Step-by-Step Tutorials",
+    description: "Comprehensive tutorials covering programming languages, frameworks, and tools with hands-on examples and practical projects.",
     icon: "BookOpen"
   },
   {
-    id: "insights",
-    title: "Tech Insights",
-    description: "Curated insights and analysis on technology trends, career growth, and industry developments.",
+    id: "guides",
+    title: "Learning Guides",
+    description: "Structured learning paths for beginners to advanced developers, covering everything from basics to advanced concepts.",
     icon: "TrendingUp"
   },
   {
-    id: "community",
-    title: "Developer Community",
-    description: "Connect with like-minded developers, share experiences, and grow together in our vibrant community.",
+    id: "tips",
+    title: "Pro Tips & Tricks",
+    description: "Expert tips, best practices, and insider knowledge to help you code more efficiently and avoid common pitfalls.",
     icon: "Users"
+  },
+  {
+    id: "resources",
+    title: "Learning Resources",
+    description: "Curated collection of tools, libraries, documentation, and resources to accelerate your tech learning journey.",
+    icon: "Headphones"
   }
 ];
 

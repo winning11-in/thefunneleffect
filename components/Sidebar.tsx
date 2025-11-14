@@ -4,34 +4,34 @@ import Link from 'next/link';
 const Sidebar: React.FC = () => {
   const popularPosts = [
     {
-      title: "The Art of Storytelling",
-      category: "Writing",
-      date: "Dec 15, 2023"
+      title: "React Hooks Complete Guide",
+      category: "React",
+      date: "Dec 15, 2024"
     },
     {
-      title: "Design Trends 2024",
-      category: "Design", 
-      date: "Dec 12, 2023"
+      title: "Python for Beginners: Variables & Data Types",
+      category: "Python", 
+      date: "Dec 12, 2024"
     },
     {
-      title: "Building Better Communities",
-      category: "Community",
-      date: "Dec 10, 2023"
+      title: "JavaScript ES6 Features Explained",
+      category: "JavaScript",
+      date: "Dec 10, 2024"
     },
     {
-      title: "Creative Photography Tips",
-      category: "Photography",
-      date: "Dec 5, 2023"
+      title: "Building REST APIs with Node.js",
+      category: "Backend",
+      date: "Dec 5, 2024"
     }
   ];
 
   const categories = [
-    { name: "Writing", count: 12 },
-    { name: "Design", count: 8 },
-    { name: "Technology", count: 15 },
-    { name: "Photography", count: 6 },
-    { name: "Community", count: 4 },
-    { name: "Lifestyle", count: 9 }
+    { name: "JavaScript", count: 18 },
+    { name: "Python", count: 15 },
+    { name: "React", count: 12 },
+    { name: "Node.js", count: 10 },
+    { name: "Backend", count: 8 },
+    { name: "Frontend", count: 14 }
   ];
 
   return (
@@ -44,8 +44,8 @@ const Sidebar: React.FC = () => {
           </div>
           <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2">Funnel Effect.</h3>
           <p className="text-gray-600 dark:text-gray-300 text-xs leading-relaxed mb-3">
-            Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle. 
-            She helps brands bring the right content to the right people.
+            Your go-to platform for learning programming and technology. We create comprehensive tutorials, 
+            guides, and resources to help you master coding skills and advance your tech career.
           </p>
           <div className="flex justify-center space-x-2">
             <a href="#" className="w-7 h-7 bg-gray-100 dark:bg-gray-800 hover:bg-red-500 hover:text-white rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 transition-colors">

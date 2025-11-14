@@ -43,7 +43,7 @@ const Newsletter: React.FC = () => {
 
             {/* Description */}
             <p className="text-center text-body mb-6 text-sm">
-              Join 70,000 subscribers! Get the latest insights delivered to your inbox.
+              Join 25,000+ developers! Get the latest programming tutorials and tech insights delivered to your inbox.
             </p>
 
             {/* Email form */}

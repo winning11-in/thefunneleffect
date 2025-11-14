@@ -21,35 +21,36 @@ const Hero: React.FC = () => {
               <span className="font-serif">The Funnel Effect.</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle.
-              <br />She helps brands bring the right content to the right people.
+              Master the world of technology through comprehensive tutorials, guides, and insights.
+              <br />Your ultimate destination for learning programming, development, and tech skills.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/about" className="btn-primary">
-              About Me
+            <Link href="/blogs" className="btn-primary">
+              Start Learning
             </Link>
+          
           </div>
 
           {/* Stats */}
           <div className="pt-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">50+</div>
-                <div className="text-sm text-white/80 uppercase tracking-wide">Stories</div>
+                <div className="text-2xl md:text-3xl font-bold text-red-400">100+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Tutorials</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">10k+</div>
-                <div className="text-sm text-white/80 uppercase tracking-wide">Readers</div>
+                <div className="text-2xl md:text-3xl font-bold text-red-400">25k+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Learners</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-red-400">15+</div>
+                <div className="text-sm text-white/80 uppercase tracking-wide">Topics</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-red-400">5+</div>
-                <div className="text-sm text-white/80 uppercase tracking-wide">Awards</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-red-400">2</div>
                 <div className="text-sm text-white/80 uppercase tracking-wide">Years</div>
               </div>
             </div>

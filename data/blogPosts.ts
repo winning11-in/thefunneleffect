@@ -17,123 +17,221 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: "blog-001",
-    slug: "how-to-become-better-with-building-in-1-month",
-    title: "How to Become Better With Building in 1 Month",
-    excerpt: "Learning to build better products requires consistent practice and the right mindset. In this comprehensive guide, we'll explore proven strategies that will accelerate your building skills.",
-    description: "Learning to build better products requires consistent practice and the right mindset. In this comprehensive guide, we'll explore proven strategies that will accelerate your building skills.",
+    slug: "python-fundamentals-variables-and-data-types",
+    title: "Python Fundamentals: Variables and Data Types",
+    excerpt: "Start your Python journey with this comprehensive guide to variables and data types. Learn the building blocks of Python programming with practical examples.",
+    description: "Start your Python journey with this comprehensive guide to variables and data types. Learn the building blocks of Python programming with practical examples.",
     content: `
-      <p>Learning to build better products requires consistent practice and the right mindset. In this comprehensive guide, we'll explore proven strategies that will accelerate your building skills.</p>
+      <p>Python is one of the most beginner-friendly programming languages, and understanding variables and data types is your first step to mastering it.</p>
       
-      <h2>The Foundation of Good Building</h2>
-      <p>Building great products starts with understanding the fundamentals. Whether you're creating software, physical products, or digital experiences, certain principles apply universally.</p>
+      <h2>What are Variables?</h2>
+      <p>Variables are containers that store data values. In Python, you don't need to declare variable types explicitly.</p>
       
-      <h3>1. Start with User Research</h3>
-      <p>Before you write a single line of code or sketch your first design, understand your users. Conduct interviews, surveys, and observe how people currently solve the problem you're addressing.</p>
+      <pre><code># Creating variables
+name = "Alice"
+age = 25
+height = 5.6
+is_student = True
+
+print(name)    # Output: Alice
+print(age)     # Output: 25</code></pre>
       
-      <h3>2. Embrace Iterative Development</h3>
-      <p>Don't aim for perfection in your first attempt. Build small, test quickly, and iterate based on feedback. This approach allows you to learn faster and build better products.</p>
+      <h2>Python Data Types</h2>
       
-      <h3>3. Focus on Core Features</h3>
-      <p>Identify the essential features that solve the primary problem. Resist the temptation to add every possible feature. A simple, well-executed solution often beats a complex one.</p>
+      <h3>1. Numbers</h3>
+      <p>Python has three numeric types: int, float, and complex.</p>
       
-      <h2>Practical Steps for Improvement</h2>
-      <p>Here's a week-by-week breakdown of how to improve your building skills:</p>
+      <pre><code># Integers
+age = 30
+count = 100
+
+# Floats
+price = 19.99
+temperature = -5.5
+
+# Complex numbers
+complex_num = 3 + 4j</code></pre>
       
-      <h3>Week 1: Foundation</h3>
+      <h3>2. Strings</h3>
+      <p>Strings are sequences of characters enclosed in quotes.</p>
+      
+      <pre><code># Different ways to create strings
+first_name = "John"
+last_name = 'Doe'
+message = """This is a
+multi-line string"""
+
+# String concatenation
+full_name = first_name + " " + last_name
+print(full_name)  # Output: John Doe</code></pre>
+      
+      <h3>3. Booleans</h3>
+      <p>Boolean values are either True or False.</p>
+      
+      <pre><code>is_active = True
+is_deleted = False
+
+# Boolean operations
+result = is_active and not is_deleted
+print(result)  # Output: True</code></pre>
+      
+      <h3>4. Lists</h3>
+      <p>Lists are ordered collections that can hold multiple items.</p>
+      
+      <pre><code># Creating lists
+fruits = ["apple", "banana", "orange"]
+numbers = [1, 2, 3, 4, 5]
+mixed = ["hello", 42, True, 3.14]
+
+# Accessing list items
+print(fruits[0])     # Output: apple
+print(fruits[-1])    # Output: orange (last item)</code></pre>
+      
+      <h3>5. Dictionaries</h3>
+      <p>Dictionaries store data in key-value pairs.</p>
+      
+      <pre><code># Creating dictionaries
+person = {
+    "name": "Alice",
+    "age": 30,
+    "city": "New York"
+}
+
+# Accessing dictionary values
+print(person["name"])     # Output: Alice
+print(person.get("age"))  # Output: 30</code></pre>
+      
+      <h2>Type Checking</h2>
+      <p>Use the type() function to check variable types:</p>
+      
+      <pre><code>x = 42
+y = "Hello"
+z = [1, 2, 3]
+
+print(type(x))  # Output: &lt;class 'int'&gt;
+print(type(y))  # Output: &lt;class 'str'&gt;
+print(type(z))  # Output: &lt;class 'list'&gt;</code></pre>
+      
+      <h2>Type Conversion</h2>
+      <p>Convert between different data types when needed:</p>
+      
+      <pre><code># String to number
+age_str = "25"
+age_int = int(age_str)
+age_float = float(age_str)
+
+# Number to string
+number = 42
+number_str = str(number)
+
+print(f"Age: {age_int}, Type: {type(age_int)}")</code></pre>
+      
+      <h2>Best Practices</h2>
       <ul>
-        <li>Study successful products in your domain</li>
-        <li>Set up your development environment</li>
-        <li>Create your first simple project</li>
+        <li>Use descriptive variable names</li>
+        <li>Follow Python naming conventions (snake_case)</li>
+        <li>Initialize variables before using them</li>
+        <li>Use appropriate data types for your data</li>
+        <li>Comment your code for clarity</li>
       </ul>
       
-      <h3>Week 2: User-Centered Design</h3>
-      <ul>
-        <li>Interview 5 potential users</li>
-        <li>Create user personas</li>
-        <li>Design your user journey</li>
-      </ul>
-      
-      <h3>Week 3: Build and Test</h3>
-      <ul>
-        <li>Develop a minimum viable version</li>
-        <li>Get feedback from real users</li>
-        <li>Identify areas for improvement</li>
-      </ul>
-      
-      <h3>Week 4: Refine and Scale</h3>
-      <ul>
-        <li>Implement user feedback</li>
-        <li>Optimize performance</li>
-        <li>Plan your next iteration</li>
-      </ul>
-      
-      <h2>Common Mistakes to Avoid</h2>
-      <p>Learn from others' mistakes to accelerate your progress:</p>
-      
-      <blockquote>
-        <p>"The biggest mistake I made early on was trying to build everything at once. Focus on one core feature and make it exceptional." - Sarah Chen, Product Designer</p>
-      </blockquote>
-      
-      <p>Building better products is a journey, not a destination. With consistent practice and the right approach, you'll see significant improvement in just one month.</p>
+      <p>Understanding variables and data types is fundamental to Python programming. Practice these concepts and you'll have a solid foundation for more advanced topics!</p>
     `,
-    category: "Building",
-    readTime: "5 min read",
-    date: "Dec 15, 2023",
-    publishDate: "2023-12-15",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    category: "Python",
+    readTime: "6 min read",
+    date: "Dec 15, 2024",
+    publishDate: "2024-12-15",
+    image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     author: "Funnel Effect"
   },
   {
     id: "blog-003",
-    slug: "the-secrets-to-finding-class-tools-for-your-dress",
-    title: "The Secrets To Finding Class Tools For Your Dress",
-    excerpt: "Fashion is about expressing your personality through the right accessories. Discover how to find the perfect tools and accessories that complement your style.",
-    description: "Fashion is about expressing your personality through the right accessories. Discover how to find the perfect tools and accessories that complement your style.",
+    slug: "react-hooks-complete-guide-for-beginners",
+    title: "React Hooks Complete Guide for Beginners",
+    excerpt: "Master React Hooks with this comprehensive guide. Learn useState, useEffect, and custom hooks with practical examples and best practices.",
+    description: "Master React Hooks with this comprehensive guide. Learn useState, useEffect, and custom hooks with practical examples and best practices.",
     content: `
-      <p>Fashion is about expressing your personality through the right accessories. Discover how to find the perfect tools and accessories that complement your style.</p>
+      <p>React Hooks revolutionized how we write components in React. This guide will teach you everything you need to know about React Hooks with practical examples.</p>
       
-      <h2>Understanding Your Style</h2>
-      <p>Before investing in fashion tools and accessories, it's crucial to understand your personal style. Are you classic, bohemian, minimalist, or eclectic?</p>
+      <h2>What are React Hooks?</h2>
+      <p>React Hooks are functions that let you use state and lifecycle features in functional components. They were introduced in React 16.8.</p>
       
-      <h3>Classic Style</h3>
-      <p>Timeless pieces that never go out of fashion. Focus on quality basics in neutral colors.</p>
-      
-      <h3>Bohemian Style</h3>
-      <p>Free-spirited and artistic. Look for flowing fabrics, patterns, and unique accessories.</p>
-      
-      <h3>Minimalist Style</h3>
-      <p>Clean lines and simple designs. Choose versatile pieces that work in multiple outfits.</p>
-      
-      <h2>Essential Fashion Tools</h2>
-      <p>Every stylish person needs these fundamental tools:</p>
-      
+      <h3>Why Use Hooks?</h3>
       <ul>
-        <li>A good tailor for perfect fit</li>
-        <li>Quality steamer or iron</li>
-        <li>Fabric shaver for maintenance</li>
-        <li>Proper hangers to maintain shape</li>
-        <li>Jewelry organizer</li>
+        <li>Simpler component logic</li>
+        <li>Better code reusability</li>
+        <li>Easier testing</li>
+        <li>Smaller bundle size</li>
       </ul>
       
-      <h2>Investment Pieces</h2>
-      <p>Some items are worth investing in:</p>
+      <h2>useState Hook</h2>
+      <p>The useState hook lets you add state to functional components:</p>
       
-      <h3>The Perfect Blazer</h3>
-      <p>A well-fitted blazer can transform any outfit from casual to professional.</p>
+      <pre><code>import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Increment
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
       
-      <h3>Quality Shoes</h3>
-      <p>Invest in comfortable, well-made shoes. They'll last longer and keep your feet happy.</p>
+      <h2>useEffect Hook</h2>
+      <p>useEffect lets you perform side effects in functional components:</p>
       
-      <h3>Statement Accessories</h3>
-      <p>A few standout pieces can refresh your entire wardrobe without breaking the budget.</p>
+      <pre><code>import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() =&gt; {
+    fetch(\`/api/users/125\`)
+      .then(res =&gt; res.json())
+      .then(userData =&gt; setUser(userData));
+  }, [userId]);
+
+  if (!user) return &lt;div&gt;Loading...&lt;/div&gt;;
+  
+  return &lt;div&gt;Hello, {user.name}!&lt;/div&gt;;
+}</code></pre>
       
-      <p>Remember, style is personal. Use these guidelines as a starting point, but always trust your instincts and wear what makes you feel confident.</p>
+      <h2>Custom Hooks</h2>
+      <p>Create your own hooks to share logic between components:</p>
+      
+      <pre><code>function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() =&gt; {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : initialValue;
+  });
+
+  useEffect(() =&gt; {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+}</code></pre>
+      
+      <h2>Best Practices</h2>
+      <ul>
+        <li>Always use hooks at the top level</li>
+        <li>Use multiple useState calls for unrelated state</li>
+        <li>Optimize useEffect with dependency arrays</li>
+        <li>Extract logic into custom hooks when reusable</li>
+      </ul>
+      
+      <p>React Hooks make functional components powerful and flexible. Start using them in your next React project!</p>
     `,
-    category: "Fashion",
-    readTime: "6 min read",
-    date: "Dec 10, 2023",
-    publishDate: "2023-12-10",
-    image: "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    category: "React",
+    readTime: "8 min read",
+    date: "Dec 15, 2024",
+    publishDate: "2024-12-15",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     author: "Funnel Effect"
   },
   {
@@ -196,230 +294,513 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "blog-005",
-    slug: "morning-beauty-routine-for-natural-glow",
-    title: "Morning Beauty Routine for a Natural Glow",
-    excerpt: "Great skin starts with understanding your skin type and choosing the right products. Learn the secrets that beauty experts use to create a radiant, natural glow.",
-    description: "Great skin starts with understanding your skin type and choosing the right products. Learn the secrets that beauty experts use to create a radiant, natural glow.",
+    slug: "javascript-es6-features-modern-development",
+    title: "JavaScript ES6 Features for Modern Development",
+    excerpt: "Master modern JavaScript with ES6 features. Learn arrow functions, destructuring, promises, and more essential features every developer should know.",
+    description: "Master modern JavaScript with ES6 features. Learn arrow functions, destructuring, promises, and more essential features every developer should know.",
     content: `
-      <p>Great skin starts with understanding your skin type and choosing the right products. Learn the secrets that beauty experts use to create a radiant, natural glow.</p>
+      <p>JavaScript ES6 (ECMAScript 2015) introduced many powerful features that make code more readable, maintainable, and efficient. Let's explore the most important ones.</p>
       
-      <h2>Understanding Your Skin Type</h2>
-      <p>Before building your routine, identify whether your skin is oily, dry, combination, or sensitive. This determines which products will work best for you.</p>
+      <h2>Arrow Functions</h2>
+      <p>Arrow functions provide a shorter syntax for writing functions and lexically bind the 'this' value.</p>
       
-      <h2>The Perfect Morning Routine</h2>
-      <h3>Step 1: Gentle Cleansing</h3>
-      <p>Start with a mild cleanser that removes overnight buildup without stripping natural oils.</p>
+      <pre><code>// Traditional function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+
+// With single parameter
+const square = x => x * x;
+
+// With block body
+const greet = name => {
+  const message = \`Hello, \${name}!\`;
+  return message;
+};</code></pre>
       
-      <h3>Step 2: Toning</h3>
-      <p>A good toner balances your skin's pH and prepares it for moisturizer.</p>
+      <h2>Destructuring Assignment</h2>
+      <p>Destructuring allows you to extract values from arrays or properties from objects into distinct variables.</p>
       
-      <h3>Step 3: Vitamin C Serum</h3>
-      <p>Vitamin C brightens skin and provides antioxidant protection against environmental damage.</p>
+      <pre><code>// Array destructuring
+const [first, second, ...rest] = [1, 2, 3, 4, 5];
+console.log(first); // 1
+console.log(rest);  // [3, 4, 5]
+
+// Object destructuring
+const user = { name: 'John', age: 30, city: 'New York' };
+const { name, age } = user;
+console.log(name); // 'John'
+
+// With default values
+const { country = 'USA' } = user;
+console.log(country); // 'USA'</code></pre>
       
-      <h3>Step 4: Moisturizing</h3>
-      <p>Choose a moisturizer appropriate for your skin type. Don't skip this step, even if you have oily skin.</p>
+      <h2>Template Literals</h2>
+      <p>Template literals use backticks and allow embedded expressions with \${} syntax.</p>
       
-      <h3>Step 5: SPF Protection</h3>
-      <p>Never skip sunscreen! It's the most important anti-aging product you can use.</p>
+      <pre><code>const name = 'Alice';
+const age = 25;
+
+// Traditional string concatenation
+const message1 = 'Hello, my name is ' + name + ' and I am ' + age + ' years old.';
+
+// Template literal
+const message2 = \`Hello, my name is \${name} and I am \${age} years old.\`;
+
+// Multi-line strings
+const html = \`
+  &lt;div&gt;
+    &lt;h1&gt;\${name}&lt;/h1&gt;
+    &lt;p&gt;Age: \${age}&lt;/p&gt;
+  &lt;/div&gt;
+\`;</code></pre>
       
-      <h2>Natural Glow Tips</h2>
-      <ul>
-        <li>Stay hydrated - drink plenty of water</li>
-        <li>Get adequate sleep (7-9 hours)</li>
-        <li>Eat antioxidant-rich foods</li>
-        <li>Exercise regularly to improve circulation</li>
-        <li>Manage stress through meditation or yoga</li>
-      </ul>
+      <h2>Let and Const</h2>
+      <p>Block-scoped variable declarations that replace var in many cases.</p>
       
-      <h2>Weekly Treatments</h2>
-      <p>Add these to your routine 1-2 times per week:</p>
+      <pre><code>// const for constants
+const PI = 3.14159;
+
+// let for variables that change
+let count = 0;
+count++;
+
+// Block scoping
+if (true) {
+  let blockScoped = 'only available in this block';
+  const alsoBlockScoped = 'same here';
+}</code></pre>
       
-      <h3>Exfoliation</h3>
-      <p>Gentle exfoliation removes dead skin cells and reveals fresh, glowing skin underneath.</p>
+      <h2>Default Parameters</h2>
+      <p>Set default values for function parameters.</p>
       
-      <h3>Face Masks</h3>
-      <p>Choose masks based on your skin's needs: hydrating, clarifying, or brightening.</p>
+      <pre><code>function greet(name = 'World', greeting = 'Hello') {
+  return \`\${greeting}, \${name}!\`;
+}
+
+console.log(greet());           // 'Hello, World!'
+console.log(greet('Alice'));    // 'Hello, Alice!'
+console.log(greet('Bob', 'Hi')); // 'Hi, Bob!'</code></pre>
       
-      <h2>Product Recommendations</h2>
-      <p>You don't need expensive products for great results. Look for these key ingredients:</p>
+      <h2>Spread Operator</h2>
+      <p>The spread operator (...) allows expanding iterables into individual elements.</p>
       
-      <ul>
-        <li>Hyaluronic acid for hydration</li>
-        <li>Niacinamide for oil control</li>
-        <li>Retinol for anti-aging (evening only)</li>
-        <li>Salicylic acid for acne-prone skin</li>
-      </ul>
+      <pre><code>// Array spreading
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const combined = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+
+// Object spreading
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const merged = { ...obj1, ...obj2 }; // { a: 1, b: 2, c: 3, d: 4 }
+
+// Function arguments
+function sum(a, b, c) {
+  return a + b + c;
+}
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6</code></pre>
       
-      <p>Consistency is key to achieving that natural glow. Start with a simple routine and gradually add products as needed. Your skin will thank you!</p>
+      <h2>Promises</h2>
+      <p>Promises provide a cleaner way to handle asynchronous operations.</p>
+      
+      <pre><code>// Creating a promise
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = Math.random() > 0.5;
+      if (success) {
+        resolve('Data loaded successfully!');
+      } else {
+        reject('Failed to load data');
+      }
+    }, 1000);
+  });
+};
+
+// Using promises
+fetchData()
+  .then(result => console.log(result))
+  .catch(error => console.error(error));</code></pre>
+      
+      <h2>Classes</h2>
+      <p>ES6 classes provide a cleaner syntax for creating objects and inheritance.</p>
+      
+      <pre><code>class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(\`\${this.name} makes a sound\`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name);
+    this.breed = breed;
+  }
+  
+  speak() {
+    console.log(\`\${this.name} barks\`);
+  }
+}
+
+const dog = new Dog('Max', 'Golden Retriever');
+dog.speak(); // 'Max barks'</code></pre>
+      
+      <p>These ES6 features make JavaScript more powerful and enjoyable to work with. Start incorporating them into your projects today!</p>
     `,
-    category: "Beauty",
-    readTime: "5 min read",
-    date: "Dec 6, 2023",
-    publishDate: "2023-12-06",
-    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    author: "Funnel Effect"
-  },
+    category: "JavaScript",
+    readTime: "10 min read",
+    date: "Dec 10, 2024",
+    publishDate: "2024-12-10",
+    image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    author: "Funnel Effect",
+   },
   {
     id: "blog-006",
-    slug: "scaling-business-with-smart-digital-marketing",
-    title: "Scaling Your Business with Smart Digital Marketing",
-    excerpt: "Business success isn't about working harder - it's about working smarter. Discover the strategic approach to digital marketing that drives maximum results with focused effort.",
-    description: "Business success isn't about working harder - it's about working smarter. Discover the strategic approach to digital marketing that drives maximum results with focused effort.",
+    slug: "building-rest-apis-with-nodejs-express",
+    title: "Building REST APIs with Node.js and Express",
+    excerpt: "Learn how to create robust REST APIs using Node.js and Express. This comprehensive guide covers routing, middleware, error handling, and best practices.",
+    description: "Learn how to create robust REST APIs using Node.js and Express. This comprehensive guide covers routing, middleware, error handling, and best practices.",
     content: `
-      <p>Business success isn't about working harder - it's about working smarter. Discover the strategic approach to digital marketing that drives maximum results with focused effort.</p>
+      <p>REST APIs are the backbone of modern web applications. Learn how to build robust, scalable APIs using Node.js and Express framework.</p>
       
-      <h2>The Smart Marketing Mindset</h2>
-      <p>Smart digital marketing is about understanding your audience deeply and creating value-driven content that resonates with their needs and desires.</p>
+      <h2>Setting Up Your Project</h2>
+      <p>First, let's create a new Node.js project and install the necessary dependencies:</p>
       
-      <h2>Foundation Elements</h2>
-      <h3>1. Define Your Ideal Customer</h3>
-      <p>Create detailed buyer personas. Understand their pain points, goals, and preferred communication channels.</p>
+      <pre><code>mkdir my-api
+cd my-api
+npm init -y
+npm install express cors helmet morgan
+npm install -D nodemon</code></pre>
       
-      <h3>2. Content Strategy</h3>
-      <p>Develop content that educates, entertains, or solves problems. Quality always beats quantity.</p>
+      <h2>Basic Express Server</h2>
+      <p>Create an app.js file with a basic Express server:</p>
       
-      <h3>3. Multi-Channel Approach</h3>
-      <p>Don't put all your eggs in one basket. Diversify across platforms where your audience spends time.</p>
+      <pre><code>const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(helmet()); // Security headers
+app.use(cors());   // Enable CORS
+app.use(morgan('combined')); // Logging
+app.use(express.json()); // Parse JSON bodies
+
+// Basic route
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to our API!' });
+});
+
+app.listen(PORT, () => {
+  console.log(\`Server running on port \${PORT}\`);
+});</code></pre>
       
-      <h2>High-Impact Strategies</h2>
+      <h2>Creating CRUD Routes</h2>
+      <p>Let's build a simple users API with Create, Read, Update, Delete operations:</p>
       
-      <h3>Email Marketing</h3>
-      <p>Still one of the highest ROI marketing channels. Build an email list and nurture relationships with valuable content.</p>
+      <pre><code>// In-memory data store (use a database in production)
+let users = [
+  { id: 1, name: 'John Doe', email: 'john@example.com' },
+  { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+];
+
+// GET all users
+app.get('/api/users', (req, res) => {
+  res.json(users);
+});
+
+// GET user by ID
+app.get('/api/users/:id', (req, res) => {
+  const user = users.find(u => u.id === parseInt(req.params.id));
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  res.json(user);
+});
+
+// POST create new user
+app.post('/api/users', (req, res) => {
+  const { name, email } = req.body;
+  
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Name and email are required' });
+  }
+  
+  const newUser = {
+    id: users.length + 1,
+    name,
+    email
+  };
+  
+  users.push(newUser);
+  res.status(201).json(newUser);
+});</code></pre>
       
-      <h3>Search Engine Optimization</h3>
-      <p>Optimize for both search engines and users. Focus on solving real problems with your content.</p>
+      <h2>Error Handling Middleware</h2>
+      <p>Add proper error handling to your API:</p>
       
-      <h3>Social Media Marketing</h3>
-      <p>Choose 1-2 platforms and excel on them rather than spreading yourself thin across all platforms.</p>
+      <pre><code>// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});</code></pre>
       
-      <h3>Paid Advertising</h3>
-      <p>Start small, test, and scale what works. Always track your return on ad spend (ROAS).</p>
+      <h2>Input Validation</h2>
+      <p>Always validate user input to prevent security issues:</p>
       
-      <h2>Automation and Tools</h2>
-      <p>Leverage technology to scale your efforts:</p>
+      <pre><code>const validateUser = (req, res, next) => {
+  const { name, email } = req.body;
+  
+  if (!name || typeof name !== 'string' || name.length < 2) {
+    return res.status(400).json({ error: 'Valid name is required' });
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Valid email is required' });
+  }
+  
+  next();
+};
+
+// Use validation middleware
+app.post('/api/users', validateUser, (req, res) => {
+  // Create user logic here
+});</code></pre>
       
+      <h2>Best Practices</h2>
       <ul>
-        <li>Email automation sequences</li>
-        <li>Social media scheduling tools</li>
-        <li>Customer relationship management (CRM)</li>
-        <li>Analytics and tracking platforms</li>
+        <li>Use environment variables for configuration</li>
+        <li>Implement proper authentication and authorization</li>
+        <li>Add rate limiting to prevent abuse</li>
+        <li>Use a database instead of in-memory storage</li>
+        <li>Add comprehensive error handling</li>
+        <li>Write unit and integration tests</li>
+        <li>Document your API with tools like Swagger</li>
       </ul>
       
-      <h2>Measuring Success</h2>
-      <p>Track meaningful metrics:</p>
-      
-      <ul>
-        <li>Customer acquisition cost (CAC)</li>
-        <li>Customer lifetime value (CLV)</li>
-        <li>Conversion rates</li>
-        <li>Return on investment (ROI)</li>
-      </ul>
-      
-      <h2>Common Mistakes to Avoid</h2>
-      <ul>
-        <li>Trying to be everywhere at once</li>
-        <li>Focusing on vanity metrics</li>
-        <li>Neglecting to test and optimize</li>
-        <li>Not understanding your customer journey</li>
-      </ul>
-      
-      <p>Smart digital marketing is a marathon, not a sprint. Focus on building genuine relationships with your audience, and the results will follow.</p>
+      <p>This foundation will help you build robust REST APIs. As you grow, consider adding databases, authentication, caching, and more advanced features!</p>
     `,
-    category: "Business",
+    category: "Backend",
     readTime: "8 min read",
-    date: "Dec 4, 2023",
-    publishDate: "2023-12-04",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    date: "Dec 8, 2024",
+    publishDate: "2024-12-08",
+    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     author: "Funnel Effect"
   },
   {
     id: "blog-007",
-    slug: "productivity-hacks-for-effective-remote-work",
-    title: "Productivity Hacks for Effective Remote Work",
-    excerpt: "Remote work offers freedom and flexibility, but it also presents unique challenges. Master these productivity strategies to thrive in your home office environment.",
-    description: "Remote work offers freedom and flexibility, but it also presents unique challenges. Master these productivity strategies to thrive in your home office environment.",
+    slug: "css-flexbox-complete-guide-layouts",
+    title: "CSS Flexbox: Complete Guide to Modern Layouts",
+    excerpt: "Master CSS Flexbox to create responsive, flexible layouts with ease. Learn all flexbox properties with practical examples and real-world use cases.",
+    description: "Master CSS Flexbox to create responsive, flexible layouts with ease. Learn all flexbox properties with practical examples and real-world use cases.",
     content: `
-      <p>Remote work offers freedom and flexibility, but it also presents unique challenges. Master these productivity strategies to thrive in your home office environment.</p>
+      <p>CSS Flexbox revolutionizes how we create layouts. This flexible layout method makes it easy to design responsive, complex layouts with minimal code.</p>
       
-      <h2>Creating Your Ideal Workspace</h2>
-      <p>Your environment significantly impacts your productivity. Design a space that promotes focus and creativity.</p>
+      <h2>What is Flexbox?</h2>
+      <p>Flexbox (Flexible Box Layout) is a CSS layout method that provides an efficient way to arrange, distribute, and align elements in a container.</p>
       
-      <h3>Essential Elements:</h3>
+      <h2>Basic Flexbox Setup</h2>
+      <p>To use flexbox, you need a flex container (parent) and flex items (children):</p>
+      
+      <pre><code>.container {
+  display: flex; /* This creates a flex container */
+}
+
+.item {
+  /* These become flex items automatically */
+  background: #f0f0f0;
+  padding: 20px;
+  margin: 10px;
+}</code></pre>
+      
+      <h2>Flex Container Properties</h2>
+      
+      <h3>flex-direction</h3>
+      <p>Controls the direction of flex items:</p>
+      
+      <pre><code>.container {
+  display: flex;
+  flex-direction: row;         /* Default: left to right */
+  flex-direction: row-reverse; /* Right to left */
+  flex-direction: column;      /* Top to bottom */
+  flex-direction: column-reverse; /* Bottom to top */
+}</code></pre>
+      
+      <h3>justify-content</h3>
+      <p>Aligns items along the main axis:</p>
+      
+      <pre><code>.container {
+  display: flex;
+  justify-content: flex-start;    /* Default: start of container */
+  justify-content: flex-end;      /* End of container */
+  justify-content: center;        /* Center of container */
+  justify-content: space-between; /* Equal space between items */
+  justify-content: space-around;  /* Equal space around items */
+  justify-content: space-evenly;  /* Equal space everywhere */
+}</code></pre>
+      
+      <h3>align-items</h3>
+      <p>Aligns items along the cross axis:</p>
+      
+      <pre><code>.container {
+  display: flex;
+  align-items: stretch;     /* Default: stretch to fill container */
+  align-items: flex-start;  /* Start of cross axis */
+  align-items: flex-end;    /* End of cross axis */
+  align-items: center;      /* Center of cross axis */
+  align-items: baseline;    /* Align to text baseline */
+}</code></pre>
+      
+      <h2>Flex Item Properties</h2>
+      
+      <h3>flex-grow</h3>
+      <p>Controls how much a flex item should grow:</p>
+      
+      <pre><code>.item-1 {
+  flex-grow: 1; /* Takes 1 part of available space */
+}
+
+.item-2 {
+  flex-grow: 2; /* Takes 2 parts of available space */
+}</code></pre>
+      
+      <h3>flex-shrink</h3>
+      <p>Controls how much a flex item should shrink:</p>
+      
+      <pre><code>.item {
+  flex-shrink: 1; /* Default: can shrink */
+  flex-shrink: 0; /* Won't shrink */
+}</code></pre>
+      
+      <h3>flex-basis</h3>
+      <p>Sets the initial main size before free space is distributed:</p>
+      
+      <pre><code>.item {
+  flex-basis: 200px; /* Initial width/height of 200px */
+  flex-basis: 50%;   /* Initial size of 50% */
+  flex-basis: auto;  /* Based on content */
+}</code></pre>
+      
+      <h2>Practical Examples</h2>
+      
+      <h3>Centering Content</h3>
+      <pre><code>.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+&lt;div class="center-container"&gt;
+  &lt;div&gt;Perfectly centered!&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      
+      <h3>Navigation Bar</h3>
+      <pre><code>.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+&lt;nav class="navbar"&gt;
+  &lt;div class="logo"&gt;Logo&lt;/div&gt;
+  &lt;div class="nav-links"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+      
+      <h3>Card Layout</h3>
+      <pre><code>.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 300px; /* Grow, shrink, basis */
+  border: 1px solid #ddd;
+  padding: 1rem;
+}</code></pre>
+      
+      <h2>Common Flexbox Patterns</h2>
+      
+      <h3>Equal Height Columns</h3>
+      <pre><code>.columns {
+  display: flex;
+}
+
+.column {
+  flex: 1; /* Equal width columns */
+  padding: 1rem;
+}</code></pre>
+      
+      <h3>Sticky Footer</h3>
+      <pre><code>body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* Takes remaining space */
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 1rem;
+}</code></pre>
+      
+      <h2>Browser Support and Tips</h2>
       <ul>
-        <li>Dedicated workspace separate from relaxation areas</li>
-        <li>Comfortable, ergonomic furniture</li>
-        <li>Good lighting (natural light is best)</li>
-        <li>Minimal distractions and clutter</li>
-        <li>Plants or personal items that inspire you</li>
+        <li>Flexbox is well-supported in all modern browsers</li>
+        <li>Use autoprefixer for older browser support</li>
+        <li>Test layouts on different screen sizes</li>
+        <li>Combine with CSS Grid for complex layouts</li>
+        <li>Use gap property for consistent spacing</li>
       </ul>
       
-      <h2>Time Management Strategies</h2>
-      
-      <h3>The Pomodoro Technique</h3>
-      <p>Work in focused 25-minute blocks followed by 5-minute breaks. After 4 cycles, take a longer 30-minute break.</p>
-      
-      <h3>Time Blocking</h3>
-      <p>Schedule specific blocks of time for different types of work. This prevents multitasking and improves focus.</p>
-      
-      <h3>The Two-Minute Rule</h3>
-      <p>If a task takes less than two minutes, do it immediately rather than adding it to your to-do list.</p>
-      
-      <h2>Communication Best Practices</h2>
-      
-      <h3>Over-Communicate</h3>
-      <p>In remote work, it's better to share too much information than too little. Keep your team informed about your progress and challenges.</p>
-      
-      <h3>Set Boundaries</h3>
-      <p>Establish clear work hours and stick to them. Use status indicators to show when you're available or in deep work mode.</p>
-      
-      <h3>Video Calls</h3>
-      <p>Use video when possible for important discussions. Non-verbal communication is crucial for building relationships.</p>
-      
-      <h2>Technology Tools</h2>
-      <p>Leverage technology to stay organized and connected:</p>
-      
-      <ul>
-        <li>Project management tools (Asana, Trello, Notion)</li>
-        <li>Communication platforms (Slack, Microsoft Teams)</li>
-        <li>Cloud storage for file sharing</li>
-        <li>Time tracking software</li>
-        <li>Noise-canceling headphones</li>
-      </ul>
-      
-      <h2>Maintaining Work-Life Balance</h2>
-      
-      <h3>Create Rituals</h3>
-      <p>Develop morning and evening routines to signal the start and end of your workday.</p>
-      
-      <h3>Take Real Breaks</h3>
-      <p>Step away from your computer. Go for a walk, exercise, or engage in a hobby during breaks.</p>
-      
-      <h3>Social Connection</h3>
-      <p>Combat isolation by scheduling regular virtual coffee chats with colleagues or joining co-working communities.</p>
-      
-      <h2>Productivity Mindset</h2>
-      <ul>
-        <li>Focus on outcomes, not hours worked</li>
-        <li>Embrace flexibility while maintaining discipline</li>
-        <li>Continuously experiment and adjust your approach</li>
-        <li>Celebrate small wins and progress</li>
-      </ul>
-      
-      <p>Remote work success comes from intentional choices about how you structure your day, manage your energy, and maintain connections with others.</p>
+      <p>Flexbox is essential for modern web development. Practice these concepts and you'll be creating flexible, responsive layouts in no time!</p>
     `,
-    category: "Productivity",
-    readTime: "6 min read",
-    date: "Dec 2, 2023",
-    publishDate: "2023-12-02",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    category: "CSS",
+    readTime: "7 min read",
+    date: "Dec 5, 2024",
+    publishDate: "2024-12-05",
+    image: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     author: "Funnel Effect"
   },
   {
     id: "blog-008",
-    slug: "understanding-sales-psychology-and-customer-behavior",
-    title: "Understanding Sales Psychology and Customer Behavior",
-    excerpt: "Successful selling isn't about pushing products - it's about understanding human psychology and building genuine connections. Learn the principles that drive purchasing decisions.",
-    description: "Successful selling isn't about pushing products - it's about understanding human psychology and building genuine connections. Learn the principles that drive purchasing decisions.",
+    slug: "git-version-control-beginners-guide",
+    title: "Git Version Control: A Beginner's Guide",
+    excerpt: "Learn Git from scratch with this comprehensive guide. Master version control, branching, merging, and collaboration workflows that every developer needs to know.",
+    description: "Learn Git from scratch with this comprehensive guide. Master version control, branching, merging, and collaboration workflows that every developer needs to know.",
     content: `
       <p>Successful selling isn't about pushing products - it's about understanding human psychology and building genuine connections. Learn the principles that drive purchasing decisions.</p>
       
@@ -510,10 +891,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "blog-009",
-    slug: "mindfulness-practices-for-creative-professionals",
-    title: "Mindfulness Practices for Creative Professionals",
-    excerpt: "Creativity and mindfulness go hand in hand. Discover practical techniques to clear mental clutter, enhance focus, and unlock your creative potential through mindful practices.",
-    description: "Creativity and mindfulness go hand in hand. Discover practical techniques to clear mental clutter, enhance focus, and unlock your creative potential through mindful practices.",
+    slug: "html5-semantic-elements-web-accessibility",
+    title: "HTML5 Semantic Elements for Better Web Accessibility",
+    excerpt: "Learn how to use HTML5 semantic elements to create more accessible and SEO-friendly websites. Understand the importance of proper markup structure.",
+    description: "Learn how to use HTML5 semantic elements to create more accessible and SEO-friendly websites. Understand the importance of proper markup structure.",
     content: `
       <p>Creativity and mindfulness go hand in hand. Discover practical techniques to clear mental clutter, enhance focus, and unlock your creative potential through mindful practices.</p>
       
@@ -620,10 +1001,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: "blog-010",
-    slug: "financial-planning-guide-for-millennials",
-    title: "Financial Planning Guide for Millennials",
-    excerpt: "Smart financial strategies to secure your future and build wealth in an uncertain economic climate. A comprehensive guide tailored for the millennial generation.",
-    description: "Smart financial strategies to secure your future and build wealth in an uncertain economic climate. A comprehensive guide tailored for the millennial generation.",
+    slug: "typescript-basics-javascript-developers",
+    title: "TypeScript Basics for JavaScript Developers",
+    excerpt: "Transition from JavaScript to TypeScript with this comprehensive guide. Learn type annotations, interfaces, and how TypeScript improves code quality and developer experience.",
+    description: "Transition from JavaScript to TypeScript with this comprehensive guide. Learn type annotations, interfaces, and how TypeScript improves code quality and developer experience.",
     content: `
       <p>Smart financial strategies to secure your future and build wealth in an uncertain economic climate. A comprehensive guide tailored for the millennial generation.</p>
       
