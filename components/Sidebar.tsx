@@ -6,22 +6,26 @@ const Sidebar: React.FC = () => {
     {
       title: "React Hooks Complete Guide",
       category: "React",
-      date: "Dec 15, 2024"
+      date: "Dec 15, 2024",
+      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=100&h=100&fit=crop&crop=center"
     },
     {
       title: "Python for Beginners: Variables & Data Types",
       category: "Python", 
-      date: "Dec 12, 2024"
+      date: "Dec 12, 2024",
+      image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=100&h=100&fit=crop&crop=center"
     },
     {
       title: "JavaScript ES6 Features Explained",
       category: "JavaScript",
-      date: "Dec 10, 2024"
+      date: "Dec 10, 2024",
+      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center"
     },
     {
       title: "Building REST APIs with Node.js",
       category: "Backend",
-      date: "Dec 5, 2024"
+      date: "Dec 5, 2024",
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=100&h=100&fit=crop&crop=center"
     }
   ];
 
@@ -68,7 +72,13 @@ const Sidebar: React.FC = () => {
           {popularPosts.map((post, index) => (
             <div key={index} className="group">
               <div className="flex space-x-3">
-                <div className="flex-shrink-0 w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors line-clamp-2 mb-1">
                     <Link href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
@@ -107,20 +117,20 @@ const Sidebar: React.FC = () => {
       </div>
 
       {/* Newsletter */}
-      <div className="bg-red-500 rounded-xl p-5 text-white">
-        <h3 className="text-base font-bold mb-2">Newsletter</h3>
-        <p className="text-red-100 text-xs mb-3 leading-relaxed">
+      <div className="bg-red-500 dark:bg-gray-800 rounded-xl p-5 text-white border border-transparent dark:border-gray-700">
+        <h3 className="text-base font-bold mb-2 text-white dark:text-white">Newsletter</h3>
+        <p className="text-red-100 dark:text-gray-300 text-xs mb-3 leading-relaxed">
           Join 70,000+ subscribers!
         </p>
         <form className="space-y-2">
           <input 
             type="email" 
             placeholder="Your email address"
-            className="w-full px-3 py-2.5 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-gray-300 text-sm border-0"
+            className="w-full px-3 py-2.5 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-red-500/50 text-sm border border-gray-200 dark:border-gray-600"
           />
           <button 
             type="submit"
-            className="w-full bg-white dark:bg-black text-red-500 dark:text-red-400 font-medium py-2.5 rounded-lg hover:bg-red-50 dark:hover:bg-gray-800 transition-colors text-sm"
+            className="w-full bg-white dark:bg-red-600 text-red-500 dark:text-white font-medium py-2.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-700 transition-colors text-sm"
           >
             Subscribe
           </button>
