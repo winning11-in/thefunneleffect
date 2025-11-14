@@ -3,11 +3,15 @@ import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import BlogCards from "@/components/BlogCards";
 import Sidebar from "@/components/Sidebar";
+import YouTubePlaylists from "@/components/YouTubePlaylists";
 
 export default function Home() {
   return (
     <Layout>
       <Hero />
+
+      {/* YouTube Playlists Section */}
+      <YouTubePlaylists />
 
       {/* Latest Blog Posts Section */}
       <div className="max-w-6xl mx-auto px-6 py-12 bg-white dark:bg-black transition-colors duration-300">
