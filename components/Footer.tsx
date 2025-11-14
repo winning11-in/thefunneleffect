@@ -65,11 +65,11 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
               </li>
               <li>
                 <Link 
-                  href="/posts" 
+                  href="/blogs" 
                   className="flex items-center gap-2 text-gray-300 hover:text-red-400 transition-colors duration-300"
                 >
                   <BookOpen className="w-4 h-4" />
-                  Stories
+                  Blogs
                 </Link>
               </li>
               <li>

@@ -122,7 +122,7 @@ const Sidebar: React.FC = () => {
             type="submit"
             className="w-full bg-white text-red-500 font-medium py-2.5 rounded-lg hover:bg-red-50 transition-colors text-sm"
           >
-            Sign Up
+            Subscribe
           </button>
         </form>
       </div>

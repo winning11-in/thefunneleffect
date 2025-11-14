@@ -1,276 +1,199 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { Calendar, Clock, ArrowLeft, Share2, BookOpen, User } from 'lucide-react';
-import { blogPosts } from '@/data';
-import { BlogPost } from '@/types';
+import React from "react";
+import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+import {
+  Calendar,
+  Clock,
+  ArrowLeft,
+  Share2,
+  BookOpen,
+  User,
+} from "lucide-react";
+import { BlogPost } from "@/types";
+import { blogPosts, getBlogPost } from "@/data/blogPosts";
+import Layout from "@/components/Layout";
+import Head from "next/head";
 
 interface BlogDetailPageProps {
   post: BlogPost | null;
 }
 
-// Mock blog content - in a real app, this would come from a CMS
-const getBlogContent = (post: BlogPost): string[] => {
-  return [
-    `Welcome to this comprehensive guide on ${post.title.toLowerCase()}. In this article, we'll explore the key concepts, best practices, and practical examples that will help you master this important topic.`,
-    
-    `## Getting Started
-
-Before we dive deep into the technical details, let's establish a solid foundation. Understanding the fundamentals is crucial for successfully implementing the concepts we'll discuss throughout this article.
-
-### Prerequisites
-
-To get the most out of this article, you should have:
-- Basic understanding of programming concepts
-- Familiarity with modern development tools
-- Some experience with web technologies`,
-
-    `## Core Concepts
-
-The main concepts we'll cover include:
-
-1. **Foundation Principles**: Understanding the underlying theory
-2. **Practical Implementation**: Real-world examples and use cases
-3. **Best Practices**: Industry-standard approaches
-4. **Common Pitfalls**: What to avoid and how to troubleshoot
-
-Let's explore each of these areas in detail.`,
-
-    `## Implementation Guide
-
-Here's a step-by-step approach to implementing these concepts in your projects:
-
-### Step 1: Setup and Configuration
-Start by setting up your development environment with the necessary tools and dependencies.
-
-### Step 2: Basic Implementation
-Begin with a simple implementation to understand the core mechanics.
-
-### Step 3: Advanced Features
-Once you're comfortable with the basics, you can explore more advanced features and optimizations.`,
-
-    `## Best Practices and Tips
-
-Based on extensive experience and community feedback, here are the most important best practices:
-
-- **Performance**: Always consider performance implications
-- **Security**: Implement proper security measures
-- **Maintainability**: Write clean, readable code
-- **Testing**: Implement comprehensive testing strategies
-- **Documentation**: Maintain clear documentation`,
-
-    `## Conclusion
-
-We've covered a lot of ground in this article, from basic concepts to advanced implementation strategies. The key takeaways are:
-
-1. Start with a solid understanding of the fundamentals
-2. Practice with real-world examples
-3. Follow established best practices
-4. Continuously learn and adapt to new developments
-
-Remember that mastering any technology takes time and practice. Don't be discouraged if everything doesn't click immediately – keep experimenting and building!`,
-
-    `## Additional Resources
-
-To continue your learning journey, check out these resources:
-
-- Official documentation and guides
-- Community forums and discussions
-- Open-source projects and examples
-- Online courses and tutorials
-
-Happy coding!`
-  ];
-};
-
 const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
   if (!post) {
     return (
-      <>
-        <Head>
-          <title>Blog Not Found - The Funnel Effect</title>
-          <meta name="description" content="The requested blog post could not be found." />
-        </Head>
-        <main className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 flex items-center justify-center">
+      <Layout>
+        <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">Blog Not Found</h1>
-            <p className="text-gray-300 mb-8">The requested blog post could not be found.</p>
-            <Link href="/blogs" className="btn-primary">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog Post Not Found</h1>
+            <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
+            <Link 
+              href="/blogs"
+              className="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-0.5"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Blogs
             </Link>
           </div>
-        </main>
-      </>
+        </div>
+      </Layout>
     );
   }
 
-  const content = getBlogContent(post);
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post.title,
+          text: post.excerpt,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      // Fallback: copy to clipboard
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
 
   return (
-    <>
+    <Layout
+      title={`${post.title} - Funnel Effect`}
+      description={post.excerpt}
+      ogTitle={post.title}
+      ogDescription={post.excerpt}
+      ogImage={post.image}
+    >
       <Head>
-        <title>{post.title} - The Funnel Effect</title>
-        <meta name="description" content={post.description} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.description} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.description} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="author" content={post.author} />
+        <meta name="article:author" content={post.author} />
+        <meta name="article:published_time" content={post.date} />
+        <meta name="article:section" content={post.category} />
+        <meta name="keywords" content={`${post.category}, blog, article, ${post.author}`} />
       </Head>
 
-      <main className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
-        {/* Header */}
-        <div className="relative py-20 px-4 sm:px-6 lg:px-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 via-transparent to-primary-800/10"></div>
-          
-          <div className="relative z-10 max-w-4xl mx-auto">
-            {/* Back button */}
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 pt-24 pb-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          {/* Back Button */}
+          <div className="mb-8">
             <Link 
               href="/blogs"
-              className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors duration-300 mb-8"
+              className="inline-flex items-center text-gray-600 hover:text-red-500 transition-colors duration-200 group"
             >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Articles
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform duration-200" />
+              Back to Blogs
             </Link>
+          </div>
 
-            {/* Category badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-primary-600/20 text-primary-400 mb-6">
+          {/* Category Badge */}
+          <div className="mb-6">
+            <span className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium uppercase tracking-wide">
               {post.category}
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            {post.title}
+          </h1>
+
+          {/* Excerpt */}
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            {post.excerpt}
+          </p>
+
+          {/* Meta Information */}
+          <div className="flex flex-wrap items-center gap-6 text-gray-500 mb-8">
+            <div className="flex items-center">
+              <User className="w-5 h-5 mr-2" />
+              <span className="font-medium text-gray-700">{post.author}</span>
             </div>
-
-            {/* Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              {post.title}
-            </h1>
-
-            {/* Meta information */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-400 mb-8">
-              <div className="flex items-center gap-2">
-                <User className="w-4 h-4" />
-                <span>{post.author}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{new Date(post.publishDate).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>{post.readTime}</span>
-              </div>
+            <div className="flex items-center">
+              <Calendar className="w-5 h-5 mr-2" />
+              <span>{post.date}</span>
             </div>
+            <div className="flex items-center">
+              <Clock className="w-5 h-5 mr-2" />
+              <span>{post.readTime}</span>
+            </div>
+            <div className="flex items-center">
+              <BookOpen className="w-5 h-5 mr-2" />
+              <span>Article</span>
+            </div>
+          </div>
 
-            {/* Description */}
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              {post.description}
-            </p>
+          {/* Share Button */}
+          <div className="flex gap-4">
+            <button
+              onClick={handleShare}
+              className="inline-flex items-center bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-full font-medium border border-gray-200 transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+            >
+              <Share2 className="w-4 h-4 mr-2" />
+              Share Article
+            </button>
+          </div>
+        </div>
+      </div>
 
-            {/* Share button */}
-            <div className="flex items-center gap-4">
-              <button className="btn-secondary flex items-center gap-2">
-                <Share2 className="w-4 h-4" />
-                Share Article
-              </button>
+      {/* Featured Image */}
+      {post.image && (
+        <div className="relative">
+          <div className="container mx-auto px-4 max-w-4xl -mt-8">
+            <div className="relative overflow-hidden rounded-xl shadow-2xl bg-white p-2">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-64 md:h-96 object-cover rounded-lg"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
+      )}
 
-        {/* Article Content */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <article className="prose prose-lg prose-invert max-w-none">
-              <div className="bg-gradient-to-br from-dark-800/30 to-dark-700/30 backdrop-blur-sm border border-gray-700/30 rounded-2xl p-8 lg:p-12">
-                {content.map((paragraph, index) => (
-                  <div 
-                    key={index}
-                    className="mb-8 text-gray-300 leading-relaxed"
-                    style={{ fontSize: '1.125rem', lineHeight: '1.75' }}
-                    dangerouslySetInnerHTML={{ 
-                      __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
-                                      .replace(/### (.*)/g, '<h3 class="text-xl font-bold text-white mt-8 mb-4">$1</h3>')
-                                      .replace(/## (.*)/g, '<h2 class="text-2xl font-bold text-white mt-12 mb-6">$1</h2>')
-                                      .replace(/- \*\*(.*?)\*\*: (.*)/g, '<li class="ml-4 mb-2"><strong class="text-primary-400">$1</strong>: $2</li>')
-                                      .replace(/^(\d+)\. (.*)/gm, '<div class="ml-4 mb-2 flex"><span class="text-primary-400 font-semibold mr-3">$1.</span><span>$2</span></div>')
-                    }}
-                  />
-                ))}
+      {/* Article Content */}
+      <article className="py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="prose prose-lg prose-gray max-w-none">
+            <div 
+              className="blog-content text-gray-700 leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+        </div>
+      </article>
+
+      {/* Article Footer */}
+      <div className="bg-gray-50 py-12">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Enjoyed this article?</h3>
+                <p className="text-gray-600">Share it with your network or subscribe for more insights.</p>
               </div>
-            </article>
-
-            {/* Author bio */}
-            <div className="mt-12 bg-gradient-to-br from-dark-800/50 to-dark-700/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 flex items-center justify-center flex-shrink-0">
-                  <span className="text-white text-xl font-bold">
-                    {post.author.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{post.author}</h3>
-                  <p className="text-gray-300 mb-4">
-                    Senior developer and technical writer with expertise in modern web technologies. 
-                    Passionate about sharing knowledge and helping other developers grow their skills.
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-gray-400">More articles by {post.author.split(' ')[0]}</span>
-                    <Link 
-                      href="/blogs"
-                      className="text-primary-400 hover:text-primary-300 transition-colors text-sm font-medium"
-                    >
-                      View all →
-                    </Link>
-                  </div>
-                </div>
+              <div className="flex gap-3">
+                <button
+                  onClick={handleShare}
+                  className="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25 transform hover:-translate-y-0.5"
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  Share
+                </button>
+                <Link
+                  href="/blogs"
+                  className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+                >
+                  More Articles
+                </Link>
               </div>
-            </div>
-
-            {/* Related articles */}
-            <div className="mt-12">
-              <h3 className="text-2xl font-bold text-white mb-8">Related Articles</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {blogPosts
-                  .filter(p => p.id !== post.id && p.category === post.category)
-                  .slice(0, 2)
-                  .map(relatedPost => (
-                    <Link
-                      key={relatedPost.id}
-                      href={`/blogs/${relatedPost.slug}`}
-                      className="block bg-gradient-to-br from-dark-800/50 to-dark-700/50 backdrop-blur-sm border border-gray-700/50 rounded-xl p-6 card-hover group"
-                    >
-                      <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-600/20 text-primary-400 mb-3">
-                        {relatedPost.category}
-                      </div>
-                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-primary-400 transition-colors duration-300">
-                        {relatedPost.title}
-                      </h4>
-                      <p className="text-gray-400 text-sm">
-                        {relatedPost.readTime} • {new Date(relatedPost.publishDate).toLocaleDateString('en-US', { 
-                          month: 'short', 
-                          day: 'numeric'
-                        })}
-                      </p>
-                    </Link>
-                  ))}
-              </div>
-            </div>
-
-            {/* Back to blogs */}
-            <div className="mt-12 text-center">
-              <Link href="/blogs" className="btn-secondary inline-flex items-center gap-2">
-                <BookOpen className="w-4 h-4" />
-                View All Articles
-              </Link>
             </div>
           </div>
-        </section>
-      </main>
-    </>
+        </div>
+      </div>
+    </Layout>
   );
 };
 
@@ -286,7 +209,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = blogPosts.find((p) => p.slug === params?.slug) || null;
+  const post = getBlogPost(params?.slug as string) || null;
 
   return {
     props: {

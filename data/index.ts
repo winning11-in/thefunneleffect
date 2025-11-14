@@ -32,68 +32,7 @@ export const recentEpisodes: Episode[] = [
   }
 ];
 
-export const blogPosts: BlogPost[] = [
-  {
-    id: "blog-001",
-    title: "10 Essential VS Code Extensions Every Developer Needs",
-    description: "Boost your productivity with these carefully curated VS Code extensions that will transform your coding experience.",
-    publishDate: "2024-11-12",
-    readTime: "5 min read",
-    slug: "essential-vscode-extensions",
-    author: "Sarah Chen",
-    category: "Tools"
-  },
-  {
-    id: "blog-002",
-    title: "Understanding React Server Components",
-    description: "A deep dive into React Server Components and how they're changing the way we think about React applications.",
-    publishDate: "2024-11-08",
-    readTime: "8 min read",
-    slug: "react-server-components",
-    author: "Michael Rodriguez",
-    category: "React"
-  },
-  {
-    id: "blog-003",
-    title: "The Complete Guide to TypeScript Generics",
-    description: "Master TypeScript generics with practical examples and real-world use cases that will level up your type safety game.",
-    publishDate: "2024-11-05",
-    readTime: "12 min read",
-    slug: "typescript-generics-guide",
-    author: "David Kim",
-    category: "TypeScript"
-  },
-  {
-    id: "blog-004",
-    title: "Building APIs with Next.js 14 App Router",
-    description: "Learn how to create robust and scalable APIs using Next.js 14's new App Router and Route Handlers.",
-    publishDate: "2024-11-01",
-    readTime: "10 min read",
-    slug: "nextjs-14-api-routes",
-    author: "Emma Thompson",
-    category: "Next.js"
-  },
-  {
-    id: "blog-005",
-    title: "CSS Grid vs Flexbox: When to Use Which",
-    description: "A comprehensive comparison of CSS Grid and Flexbox with practical examples and decision-making guidelines.",
-    publishDate: "2024-10-28",
-    readTime: "7 min read",
-    slug: "css-grid-vs-flexbox",
-    author: "Alex Johnson",
-    category: "CSS"
-  },
-  {
-    id: "blog-006",
-    title: "Database Design Patterns for Modern Applications",
-    description: "Explore proven database design patterns and learn when to apply them in your next project.",
-    publishDate: "2024-10-25",
-    readTime: "15 min read",
-    slug: "database-design-patterns",
-    author: "Lisa Zhang",
-    category: "Database"
-  }
-];
+ 
 
 export const features: Feature[] = [
   {
@@ -139,3 +78,6 @@ export const socialLinks: SocialLink[] = [
     icon: "Twitter"
   }
 ];
+
+// Re-export blog functions for consistency
+export { blogPosts, getBlogPosts, getBlogPost, getCategories } from './blogPosts';

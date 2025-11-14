@@ -82,7 +82,7 @@ const Newsletter: React.FC = () => {
                 ) : (
                   <span className="flex items-center justify-center">
                     <Send className="w-4 h-4 mr-2" />
-                    Sign Up
+                    Subscribe
                   </span>
                 )}
               </button>

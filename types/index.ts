@@ -10,14 +10,18 @@ export interface Episode {
 }
 
 export interface BlogPost {
-  id: string;
-  title: string;
-  description: string;
-  publishDate: string;
-  readTime: string;
+  id?: string;
   slug: string;
-  author: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  description?: string;
   category: string;
+  readTime: string;
+  date: string;
+  publishDate?: string;
+  image: string;
+  author: string;
   featured?: boolean;
 }
 

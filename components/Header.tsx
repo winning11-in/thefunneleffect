@@ -7,22 +7,21 @@ const Header: React.FC = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Inspiration', href: '/posts' },
-    { name: 'Pages', href: '/categories' },
+    { name: 'Blogs', href: '/blogs' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-xl">F</span>
+              <div className="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center mr-3">
+                <span className="text-white font-bold text-lg">F</span>
               </div>
-              <span className="text-white text-2xl font-bold font-serif">Funnel Effect</span>
+              <span className="text-gray-900 text-xl font-bold font-serif">Funnel Effect</span>
             </Link>
           </div>
 
@@ -32,7 +31,7 @@ const Header: React.FC = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="nav-link"
+                className="text-gray-700 hover:text-red-500 transition-colors duration-200 font-medium"
               >
                 {item.name}
               </Link>
@@ -41,7 +40,7 @@ const Header: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
-            <Link href="/subscribe" className="btn-secondary">
+            <Link href="/subscribe" className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full font-medium text-sm transition-all duration-300">
               Subscribe
             </Link>
           </div>

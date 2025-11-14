@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Poppins', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        serif: ['Poppins', 'serif'],
       },
       colors: {
         red: {
@@ -94,22 +94,22 @@ module.exports = {
             lineHeight: '1.7',
             fontFamily: 'Poppins, sans-serif',
             h1: {
-              fontFamily: 'Playfair Display, serif',
+              fontFamily: 'Poppins, serif',
               fontWeight: '700',
               color: '#111827',
             },
             h2: {
-              fontFamily: 'Playfair Display, serif',
+              fontFamily: 'Poppins, serif',
               fontWeight: '700',
               color: '#111827',
             },
             h3: {
-              fontFamily: 'Playfair Display, serif',
+              fontFamily: 'Poppins, serif',
               fontWeight: '600',
               color: '#111827',
             },
             h4: {
-              fontFamily: 'Playfair Display, serif',
+              fontFamily: 'Poppins, serif',
               fontWeight: '600',
               color: '#111827',
             },
