@@ -116,26 +116,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
 
-      {/* Newsletter */}
-      <div className="bg-red-500 dark:bg-gray-800 rounded-xl p-5 text-white border border-transparent dark:border-gray-700">
-        <h3 className="text-base font-bold mb-2 text-white dark:text-white">Newsletter</h3>
-        <p className="text-red-100 dark:text-gray-300 text-xs mb-3 leading-relaxed">
-          Join 70,000+ subscribers!
-        </p>
-        <form className="space-y-2">
-          <input 
-            type="email" 
-            placeholder="Your email address"
-            className="w-full px-3 py-2.5 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50 dark:focus:ring-red-500/50 text-sm border border-gray-200 dark:border-gray-600"
-          />
-          <button 
-            type="submit"
-            className="w-full bg-white dark:bg-primary-600 text-primary-600 dark:text-white font-medium py-2.5 rounded-lg hover:bg-primary-50 dark:hover:bg-primary-700 transition-colors text-sm"
-          >
-            Subscribe
-          </button>
-        </form>
-      </div>
+ 
     </aside>
   );
 };

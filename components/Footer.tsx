@@ -82,15 +82,34 @@ const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
             </ul>
           </div>
 
-          {/* Newsletter signup */}
+          {/* Learning Resources */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Stay Connected</h4>
+            <h4 className="text-white font-semibold mb-4">Learning Hub</h4>
             <p className="text-gray-300 dark:text-gray-400 text-sm mb-4">
-              Get notified about new stories and insights.
+              Explore our comprehensive learning resources.
             </p>
-            <button className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
-              Subscribe to Newsletter
-            </button>
+            <div className="space-y-2">
+              <a 
+                href="https://www.youtube.com/@thefunneleffect" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 w-full bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg"
+              >
+                <Youtube className="w-4 h-4" />
+                YouTube Channel
+              </a>
+              <a 
+                href="https://medium.com/@thefunneleffect" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 w-full bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                </svg>
+                Medium Articles
+              </a>
+            </div>
           </div>
         </div>
 
