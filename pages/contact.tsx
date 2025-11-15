@@ -5,23 +5,23 @@ import Layout from '@/components/Layout';
 interface FormData {
   name: string;
   email: string;
-  subject: string;
-  message: string;
+  mobile: string;
+  description: string;
 }
 
 interface FormErrors {
   name?: string;
   email?: string;
-  subject?: string;
-  message?: string;
+  mobile?: string;
+  description?: string;
 }
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    mobile: '',
+    description: ''
   });
   
   const [errors, setErrors] = useState<FormErrors>({});
@@ -41,14 +41,16 @@ export default function ContactPage() {
       newErrors.email = 'Please enter a valid email address';
     }
     
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
+    if (!formData.mobile.trim()) {
+      newErrors.mobile = 'Mobile number is required';
+    } else if (!/^[\d\s\+\-\(\)]+$/.test(formData.mobile)) {
+      newErrors.mobile = 'Please enter a valid mobile number';
     }
     
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters long';
+    if (!formData.description.trim()) {
+      newErrors.description = 'Description is required';
+    } else if (formData.description.trim().length < 10) {
+      newErrors.description = 'Description must be at least 10 characters long';
     }
     
     return newErrors;
@@ -82,19 +84,32 @@ export default function ContactPage() {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log('Form submitted:', formData);
-      setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+      const response = await fetch('https://be-thefunneleffect.vercel.app/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        console.log('Form submitted successfully:', result);
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          mobile: '',
+          description: ''
+        });
+      } else {
+        console.error('Error submitting form:', result.message);
+        alert('Error submitting form. Please try again.');
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Network error:', error);
+      alert('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -290,47 +305,42 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Subject *
+                    <label htmlFor="mobile" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Mobile Number *
                     </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
+                    <input
+                      type="tel"
+                      id="mobile"
+                      name="mobile"
+                      value={formData.mobile}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 border rounded-xl text-gray-900 dark:text-white bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all duration-300 appearance-none cursor-pointer ${
-                        errors.subject ? 'border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-800 focus:border-red-500'
+                      className={`w-full px-4 py-3 border rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all duration-300 ${
+                        errors.mobile ? 'border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-800 focus:border-red-500'
                       }`}
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="collaboration">Collaboration</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="support">Support</option>
-                      <option value="business">Business Inquiry</option>
-                    </select>
-                    {errors.subject && (
-                      <p className="mt-1 text-sm text-red-500">{errors.subject}</p>
+                      placeholder="Enter your mobile number"
+                    />
+                    {errors.mobile && (
+                      <p className="mt-1 text-sm text-red-500">{errors.mobile}</p>
                     )}
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Message *
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Description *
                     </label>
                     <textarea
-                      id="message"
-                      name="message"
+                      id="description"
+                      name="description"
                       rows={5}
-                      value={formData.message}
+                      value={formData.description}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border rounded-xl text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 bg-white dark:bg-black focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all duration-300 resize-none ${
-                        errors.message ? 'border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-800 focus:border-red-500'
+                        errors.description ? 'border-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-800 focus:border-red-500'
                       }`}
                       placeholder="Tell us more about your inquiry..."
                     ></textarea>
-                    {errors.message && (
-                      <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+                    {errors.description && (
+                      <p className="mt-1 text-sm text-red-500">{errors.description}</p>
                     )}
                   </div>
 
