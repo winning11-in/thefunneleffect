@@ -86,7 +86,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       metaTitle={post.metaTitle}
       metaDescription={post.metaDescription}
       metaKeywords={post.metaKeywords}
-      ogTitle={`${post.title} - The Funnel Effect`}
+      ogTitle={`${post.title} - The Funnel Effect`} 
       ogDescription={post.description}
       ogImage={post.imageUrl || post.thumbnailUrl}
       author="The Funnel Effect Team"
