@@ -160,17 +160,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ posts: initialPosts, categories: 
   }, [searchTerm, selectedCategory]);
 
   return (
-    <Layout 
-      title="All Blogs - The Funnel Effect"
-      description="Explore all our blog posts covering topics from technology, business, lifestyle, and creativity. Discover insights and tips from industry experts."
-      metaTitle="Blog Posts & Articles - The Funnel Effect"
-      metaDescription="Dive into our comprehensive collection of blog posts covering technology, business insights, creative writing, and lifestyle tips. Stay updated with the latest trends and expert advice."
-      metaKeywords="blog posts, articles, technology, business, lifestyle, creativity, insights, tips, trends"
-      ogTitle="All Blogs - The Funnel Effect"
-      ogDescription="Explore all our blog posts covering topics from technology, business, lifestyle, and creativity."
-      section="Blog"
-      canonical="https://thefunneleffect.com/blogs"
-    >
+    <Layout>
       {/* Hero Section */}
       <div className="relative pt-28 pb-16 overflow-hidden">
           {/* Background Image */}

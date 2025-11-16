@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ApiPage } from '@/services/api';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ interface LayoutProps {
   tags?: string[];
   canonical?: string;
   noIndex?: boolean;
+  post?: ApiPage | null;
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -42,13 +44,36 @@ const Layout: React.FC<LayoutProps> = ({
   section,
   tags = [],
   canonical,
-  noIndex = false
+  noIndex = false,
+  post
 }) => {
-  const finalTitle = metaTitle || title;
-  const finalDescription = metaDescription || description;
-  const finalOgTitle = ogTitle || finalTitle;
-  const finalOgDescription = ogDescription || finalDescription;
-  const finalKeywords = metaKeywords || tags.join(', ');
+  // Extract meta information from post if provided
+  const postTitle = post ? `${post.title} - The Funnel Effect` : undefined;
+  const postDescription = post ? post.description : undefined;
+  const postMetaTitle = post ? post.metaTitle : undefined;
+  const postMetaDescription = post ? post.metaDescription : undefined;
+  const postMetaKeywords = post ? post.metaKeywords : undefined;
+  const postOgTitle = post ? `${post.title} - The Funnel Effect` : undefined;
+  const postOgDescription = post ? post.description : undefined;
+  const postOgImage = post ? (post.imageUrl || post.thumbnailUrl) : undefined;
+  const postPublishedTime = post ? post.createdAt : undefined;
+  const postModifiedTime = post ? post.updatedAt : undefined;
+  const postSection = post ? (post.category || "Blog") : undefined;
+  const postTags = post ? post.tags : undefined;
+  const postCanonical = post ? `https://thefunneleffect.com/blogs/${post.slug}` : undefined;
+
+  const finalTitle = postMetaTitle || metaTitle || postTitle || title;
+  const finalDescription = postMetaDescription || metaDescription || postDescription || description;
+  const finalOgTitle = ogTitle || postOgTitle || finalTitle;
+  const finalOgDescription = ogDescription || postOgDescription || finalDescription;
+  const finalKeywords = metaKeywords || postMetaKeywords || (postTags || tags).join(', ');
+  const finalAuthor = author;
+  const finalPublishedTime = publishedTime || postPublishedTime;
+  const finalModifiedTime = modifiedTime || postModifiedTime;
+  const finalSection = section || postSection;
+  const finalTags = postTags || tags;
+  const finalCanonical = canonical || postCanonical;
+  const finalOgImage = ogImage || postOgImage;
 
   return (
     <>
@@ -58,23 +83,23 @@ const Layout: React.FC<LayoutProps> = ({
         
         {/* SEO Meta Tags */}
         {finalKeywords && <meta name="keywords" content={finalKeywords} />}
-        <meta name="author" content={author} />
+        <meta name="author" content={finalAuthor} />
         {noIndex && <meta name="robots" content="noindex,nofollow" />}
-        {canonical && <link rel="canonical" href={canonical} />}
+        {finalCanonical && <link rel="canonical" href={finalCanonical} />}
         
         {/* Open Graph */}
         <meta property="og:title" content={finalOgTitle} />
         <meta property="og:description" content={finalOgDescription} />
         <meta property="og:type" content="website" />
-        {ogImage && <meta property="og:image" content={ogImage} />}
+        {finalOgImage && <meta property="og:image" content={finalOgImage} />}
         <meta property="og:site_name" content="The Funnel Effect" />
         
         {/* Article specific Open Graph */}
-        {section && <meta property="article:section" content={section} />}
-        {author && <meta property="article:author" content={author} />}
-        {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-        {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-        {tags.map((tag, index) => (
+        {finalSection && <meta property="article:section" content={finalSection} />}
+        {finalAuthor && <meta property="article:author" content={finalAuthor} />}
+        {finalPublishedTime && <meta property="article:published_time" content={finalPublishedTime} />}
+        {finalModifiedTime && <meta property="article:modified_time" content={finalModifiedTime} />}
+        {finalTags.map((tag, index) => (
           <meta key={index} property="article:tag" content={tag} />
         ))}
         
@@ -82,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={finalOgTitle} />
         <meta name="twitter:description" content={finalOgDescription} />
-        {ogImage && <meta name="twitter:image" content={ogImage} />}
+        {finalOgImage && <meta name="twitter:image" content={finalOgImage} />}
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />

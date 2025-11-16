@@ -80,22 +80,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
   };
 
   return (
-    <Layout
-      title={`${post.title} - The Funnel Effect`}
-      description={post.description}
-      metaTitle={post.metaTitle}
-      metaDescription={post.metaDescription}
-      metaKeywords={post.metaKeywords}
-      ogTitle={`${post.title} - The Funnel Effect`} 
-      ogDescription={post.description}
-      ogImage={post.imageUrl || post.thumbnailUrl}
-      author="The Funnel Effect Team"
-      publishedTime={post.createdAt}
-      modifiedTime={post.updatedAt}
-      section={post.category || "Blog"}
-      tags={post.tags}
-      canonical={`https://thefunneleffect.com/blogs/${post.slug}`}
-    >
+    <Layout post={post}>
       <div className="relative bg-white dark:bg-black pt-20 pb-0">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">

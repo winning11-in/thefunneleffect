@@ -117,10 +117,7 @@ export default function ContactPage() {
 
   if (isSubmitted) {
     return (
-      <Layout
-        title="Thank You - Funnel Effect"
-        description="Thank you for your message. We'll get back to you soon."
-      >
+      <Layout>
         <div className="pt-20 pb-16">
           <div className="max-w-2xl mx-auto px-6 text-center">
             <div className="mb-8">
@@ -155,12 +152,7 @@ export default function ContactPage() {
   }
 
   return (
-    <Layout
-      title="Contact Us - Funnel Effect"
-      description="Get in touch with us. We'd love to hear from you and answer any questions you might have."
-      ogTitle="Contact Us - Funnel Effect"
-      ogDescription="Get in touch with us. We'd love to hear from you and answer any questions you might have."
-    >
+    <Layout>
       {/* Hero Section */}
       <div className="relative pt-28 pb-20 overflow-hidden">
           {/* Background Image */}

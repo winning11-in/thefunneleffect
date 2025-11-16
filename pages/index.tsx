@@ -28,16 +28,7 @@ interface HomeProps {
 
 export default function Home({ blogPosts, popularPosts, categories }: HomeProps) {
   return (
-    <Layout
-      title="The Funnel Effect - Professional Writer & Creative Blogger"
-      description="Hello, I'm a content writer who is fascinated by content features, creativity and lifestyle. I help brands bring the right content to the right people."
-      metaTitle="The Funnel Effect - Expert Content Writing & Creative Blogging"
-      metaDescription="Professional content writer specializing in creative storytelling, lifestyle content, and brand communication. Discover insights on writing, creativity, and digital marketing."
-      metaKeywords="content writer, creative blogger, digital marketing, content creation, storytelling, brand communication, writing tips, creative writing"
-      ogTitle="The Funnel Effect - Professional Writer & Creative Blogger"
-      ogDescription="Professional content writer specializing in creative storytelling and brand communication. Discover insights on writing and creativity."
-      canonical="https://thefunneleffect.com"
-    >
+    <Layout>
       <Hero />
 
        <YouTubePlaylists />
