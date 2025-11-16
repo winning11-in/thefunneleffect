@@ -96,7 +96,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       tags={post.tags}
       canonical={`https://thefunneleffect.com/blogs/${post.slug}`}
     >
-      <div className="relative bg-white dark:bg-gray-900 pt-20 pb-12">
+      <div className="relative bg-white dark:bg-black pt-20 pb-12">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">
             <Link
@@ -143,9 +143,9 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
 
       {/* Featured Image */}
       {(post.imageUrl || post.thumbnailUrl) && (
-        <div className="relative bg-gray-50 dark:bg-gray-800/50 py-8">
+        <div className="relative bg-gray-50 dark:bg-black py-8">
           <div className="container mx-auto px-4 max-w-5xl">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-gray-900 p-1">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-black p-1">
               <img
                 src={post.imageUrl || post.thumbnailUrl}
                 alt={post.title}
@@ -158,7 +158,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       )}
 
       {/* Article Content */}
-      <article className="py-12 bg-white dark:bg-gray-900">
+      <article className="py-12 bg-white dark:bg-black">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="max-w-none">
             {post.content ? (
@@ -193,9 +193,9 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       </article>
 
       {/* Article Footer */}
-      <div className="bg-gray-50 dark:bg-gray-800/50 py-8">
+      <div className="bg-gray-50 dark:bg-black py-8">
         <div className="container mx-auto px-4 max-w-5xl">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 dark:border-gray-800">
+            <div className="bg-white dark:bg-black rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 dark:border-gray-800">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
