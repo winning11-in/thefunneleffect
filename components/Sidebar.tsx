@@ -64,7 +64,7 @@ const Sidebar: React.FC<SidebarProps> = ({ popularPosts = [], categories = [] })
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 mb-1">
+                    <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-1 mb-1">
                       <Link href={`/blogs/${post.slug}`}>
                         {post.title}
                       </Link>
