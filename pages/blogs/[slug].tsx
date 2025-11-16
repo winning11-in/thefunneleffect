@@ -163,12 +163,8 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
           <div className="max-w-none">
             {post.content ? (
               <div
-                className="blog-content text-gray-700 dark:text-gray-300 leading-relaxed text-lg"
+                className="blog-content"
                 dangerouslySetInnerHTML={{ __html: post.content }}
-                style={{
-                  fontSize: '1.125rem',
-                  lineHeight: '1.75'
-                }}
               />
             ) : (
               <div className="blog-content text-gray-700 dark:text-gray-300 leading-relaxed">
