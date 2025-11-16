@@ -13,11 +13,6 @@ const BlogCard: React.FC<{
   image?: string;
   slug: string;
 }> = ({ title, excerpt, category, readTime, date, image, slug }) => {
-  // Truncate title to maximum 2 lines (approximately 80 characters)
-  const truncatedTitle = title.length > 80 ? title.substring(0, 80).trim() + '...' : title;
-  
-  // Truncate excerpt to maximum 3 lines (approximately 120 characters)
-  const truncatedExcerpt = excerpt.length > 120 ? excerpt.substring(0, 120).trim() + '...' : excerpt;
   
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -49,11 +44,11 @@ const BlogCard: React.FC<{
           </span>
         </div>
         <div className="p-6 flex-1 flex flex-col">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight h-[3.5rem] overflow-hidden">
-            {truncatedTitle}
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight line-clamp-2">
+            {title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed flex-1 h-[4.5rem] overflow-hidden">
-            {truncatedExcerpt}
+          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed line-clamp-3">
+            {excerpt}
           </p>
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-3 mt-auto">
             <span>{formatDate(date)}</span>

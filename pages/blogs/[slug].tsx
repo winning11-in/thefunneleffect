@@ -96,7 +96,7 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
       tags={post.tags}
       canonical={`https://thefunneleffect.com/blogs/${post.slug}`}
     >
-      <div className="relative bg-white dark:bg-black pt-20 pb-12">
+      <div className="relative bg-white dark:bg-black pt-20 pb-0">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">
             <Link
@@ -143,13 +143,13 @@ const BlogDetailPage: React.FC<BlogDetailPageProps> = ({ post }) => {
 
       {/* Featured Image */}
       {(post.imageUrl || post.thumbnailUrl) && (
-        <div className="relative bg-gray-50 dark:bg-black py-8">
+        <div className="relative bg-gray-50 dark:bg-black  ">
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="relative overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-black p-1">
               <img
                 src={post.imageUrl || post.thumbnailUrl}
                 alt={post.title}
-                className="w-full h-56 md:h-80 lg:h-96 object-cover rounded-xl"
+                className="w-full object-cover rounded-xl"
                 loading="eager"
               />
             </div>
