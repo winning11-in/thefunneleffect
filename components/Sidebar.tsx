@@ -67,7 +67,7 @@ const Sidebar: React.FC = () => {
       </div>
       {/* Popular Posts */}
       <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
-        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Popular Posts</h3>
+        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Popular Blogs</h3>
         <div className="space-y-3">
           {popularPosts.map((post, index) => (
             <div key={index} className="group">
@@ -81,7 +81,7 @@ const Sidebar: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                                     <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 mb-1">
-                    <Link href={`/posts/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    <Link href={`/blogs/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
                       {post.title}
                     </Link>
                   </h4>
@@ -103,7 +103,7 @@ const Sidebar: React.FC = () => {
           {categories.map((category, index) => (
             <div key={index}>
               <Link 
-                href={`/category/${category.name.toLowerCase()}`}
+                href={`/blogs/${category.name.toLowerCase()}`}
                 className="flex items-center justify-between py-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
               >
                 <span className="text-xs font-medium">{category.name}</span>
