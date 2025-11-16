@@ -1,27 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import Layout from '@/components/Layout';
-import { getBlogPosts, getCategories } from '@/data/blogPosts';
-import { BlogPost } from '@/types';
+import { pagesAPI, ApiPage } from '@/services/api';
 
-const BlogCard: React.FC<BlogPost> = ({ title, excerpt, category, readTime, date, image, slug }) => {
+const BlogCard: React.FC<{
+  title: string;
+  excerpt: string;
+  category?: string;
+  readTime?: number;
+  date: string;
+  image?: string;
+  slug: string;
+}> = ({ title, excerpt, category, readTime, date, image, slug }) => {
   // Truncate title to maximum 2 lines (approximately 80 characters)
   const truncatedTitle = title.length > 80 ? title.substring(0, 80).trim() + '...' : title;
   
   // Truncate excerpt to maximum 3 lines (approximately 120 characters)
   const truncatedExcerpt = excerpt.length > 120 ? excerpt.substring(0, 120).trim() + '...' : excerpt;
   
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const getReadTime = () => {
+    if (readTime) {
+      return `${readTime} min read`;
+    }
+    return '5 min read'; // default
+  };
+  
   return (
     <Link href={`/blogs/${slug}`}>
       <article className="bg-white dark:bg-black rounded-xl overflow-hidden shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800 cursor-pointer h-full flex flex-col">
         <div className="relative h-56 overflow-hidden flex-shrink-0">
           <img 
-            src={image} 
+            src={image || 'https://via.placeholder.com/400x200?text=Blog+Image'} 
             alt={title}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <span className="absolute top-4 left-4 bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
-            {category}
+            {category || 'Blog'}
           </span>
         </div>
         <div className="p-6 flex-1 flex flex-col">
@@ -32,9 +56,9 @@ const BlogCard: React.FC<BlogPost> = ({ title, excerpt, category, readTime, date
             {truncatedExcerpt}
           </p>
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-3 mt-auto">
-            <span>{date}</span>
+            <span>{formatDate(date)}</span>
             <span>•</span>
-            <span>{readTime}</span>
+            <span>{getReadTime()}</span>
           </div>
         </div>
       </article>
@@ -108,21 +132,23 @@ const Pagination: React.FC<{
   );
 };
 
-const BlogsPage: React.FC = () => {
+interface BlogsPageProps {
+  posts: ApiPage[];
+  categories: string[];
+}
+
+const BlogsPage: React.FC<BlogsPageProps> = ({ posts: initialPosts, categories: initialCategories }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [posts] = useState<ApiPage[]>(initialPosts);
+  const [categories] = useState<string[]>(initialCategories);
   const postsPerPage = 6;
 
-  const allPosts = getBlogPosts();
-  const categories = ['All', ...getCategories()];
-    
-  // Get unique categories
-  
   // Filter posts based on search and category
-  const filteredPosts = allPosts.filter(post => {
+  const filteredPosts = posts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+                         post.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -133,12 +159,22 @@ const BlogsPage: React.FC = () => {
     currentPage * postsPerPage
   );
 
+  // Reset to page 1 when search or filter changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedCategory]);
+
   return (
     <Layout 
-      title="All Blogs - Funnel Effect"
-      description="Explore all our blog posts covering topics from technology and business to lifestyle and creativity."
-      ogTitle="All Blogs - Funnel Effect"
-      ogDescription="Explore all our blog posts covering topics from technology and business to lifestyle and creativity."
+      title="All Blogs - The Funnel Effect"
+      description="Explore all our blog posts covering topics from technology, business, lifestyle, and creativity. Discover insights and tips from industry experts."
+      metaTitle="Blog Posts & Articles - The Funnel Effect"
+      metaDescription="Dive into our comprehensive collection of blog posts covering technology, business insights, creative writing, and lifestyle tips. Stay updated with the latest trends and expert advice."
+      metaKeywords="blog posts, articles, technology, business, lifestyle, creativity, insights, tips, trends"
+      ogTitle="All Blogs - The Funnel Effect"
+      ogDescription="Explore all our blog posts covering topics from technology, business, lifestyle, and creativity."
+      section="Blog"
+      canonical="https://thefunneleffect.com/blogs"
     >
       {/* Hero Section */}
       <div className="relative pt-28 pb-16 overflow-hidden">
@@ -198,7 +234,7 @@ const BlogsPage: React.FC = () => {
               
               {/* Results count */}
               <p className="text-white/70 text-sm mb-8">
-                Showing {filteredPosts.length} of {allPosts.length} articles
+                Showing {filteredPosts.length} of {posts.length} articles
               </p>
             </div>
           </div>
@@ -208,15 +244,25 @@ const BlogsPage: React.FC = () => {
 
         {/* Blog Grid */}
         <div className="max-w-6xl mx-auto px-6 py-16 bg-white dark:bg-black transition-colors duration-300">
-          {filteredPosts.length === 0 ? (
+          <div className="max-w-6xl mx-auto">
+            {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-xl text-gray-500 dark:text-gray-400">No articles found matching your criteria.</p>
             </div>
           ) : (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {currentPosts.map((post, index) => (
-                  <BlogCard key={index} {...post} />
+                {currentPosts.map((post) => (
+                  <BlogCard 
+                    key={post._id}
+                    title={post.title}
+                    excerpt={post.description}
+                    category={post.category}
+                    readTime={post.readTime}
+                    date={post.createdAt}
+                    image={post.imageUrl || post.thumbnailUrl}
+                    slug={post.slug}
+                  />
                 ))}
               </div>
 
@@ -231,8 +277,44 @@ const BlogsPage: React.FC = () => {
             </>
           )}
         </div>
+        </div>
     </Layout>
   );
 };
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    // Get all blog posts at build time
+    const response = await pagesAPI.getPagesByGroup('blogs', {
+      limit: 100, // Get all posts
+      page: 1
+    });
+    
+    // Extract unique categories
+    const categoriesSet = new Set(
+      response.pages
+        .map(post => post.category)
+        .filter(category => category && category.trim() !== '')
+    );
+    const uniqueCategories = ['All', ...Array.from(categoriesSet)];
+    
+    return {
+      props: {
+        posts: response.pages,
+        categories: uniqueCategories,
+      },
+    };
+  } catch (error) {
+    console.error('Error in getStaticProps for blogs:', error);
+    return {
+      props: {
+        posts: [],
+        categories: ['All'],
+      },
+    };
+  }
+};
+
+ 
 
 export default BlogsPage;

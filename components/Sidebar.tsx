@@ -1,49 +1,31 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Sidebar: React.FC = () => {
-  const popularPosts = [
-    {
-      title: "React Hooks Complete Guide",
-      category: "React",
-      date: "Dec 15, 2024",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=100&h=100&fit=crop&crop=center"
-    },
-    {
-      title: "Python for Beginners: Variables & Data Types",
-      category: "Python", 
-      date: "Dec 12, 2024",
-      image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=100&h=100&fit=crop&crop=center"
-    },
-    {
-      title: "JavaScript ES6 Features Explained",
-      category: "JavaScript",
-      date: "Dec 10, 2024",
-      image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=100&h=100&fit=crop&crop=center"
-    },
-    {
-      title: "Building REST APIs with Node.js",
-      category: "Backend",
-      date: "Dec 5, 2024",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=100&h=100&fit=crop&crop=center"
-    }
-  ];
+interface PopularPost {
+  title: string;
+  category: string;
+  date: string;
+  image: string;
+  slug: string;
+}
 
-  const categories = [
-    { name: "JavaScript", count: 18 },
-    { name: "Python", count: 15 },
-    { name: "React", count: 12 },
-    { name: "Node.js", count: 10 },
-    { name: "Backend", count: 8 },
-    { name: "Frontend", count: 14 }
-  ];
+interface Category {
+  name: string;
+  count: number;
+}
 
+interface SidebarProps {
+  popularPosts: PopularPost[];
+  categories: Category[];
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ popularPosts = [], categories = [] }) => {
   return (
     <aside className="space-y-5">
       {/* About Widget */}
       <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
         <div className="text-center">
-                    <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
+          <div className="w-14 h-14 mx-auto mb-3 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
             <span className="text-base font-bold text-white">F</span>
           </div>
           <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2">Funnel Effect.</h3>
@@ -65,58 +47,61 @@ const Sidebar: React.FC = () => {
           </div>
         </div>
       </div>
+
       {/* Popular Posts */}
-      <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
-        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Popular Blogs</h3>
-        <div className="space-y-3">
-          {popularPosts.map((post, index) => (
-            <div key={index} className="group">
-              <div className="flex space-x-3">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                                    <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 mb-1">
-                    <Link href={`/blogs/${post.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                      {post.title}
-                    </Link>
-                  </h4>
-                  <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                    <span className="bg-primary-600 text-white px-2 py-1 rounded-full text-xs">{post.category}</span>
-                    <span className="ml-2 text-xs">{post.date}</span>
+      {popularPosts.length > 0 && (
+        <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
+          <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Popular Blogs</h3>
+          <div className="space-y-3">
+            {popularPosts.map((post, index) => (
+              <div key={index} className="group">
+                <div className="flex space-x-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-xs font-medium text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors line-clamp-2 mb-1">
+                      <Link href={`/blogs/${post.slug}`}>
+                        {post.title}
+                      </Link>
+                    </h4>
+                    <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                      <span className="bg-primary-600 text-white px-2 py-1 rounded-full text-xs">{post.category}</span>
+                      <span className="ml-2 text-xs">{post.date}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Categories */}
-      <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
-        <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Explore Topics</h3>
-        <div className="space-y-2">
-          {categories.map((category, index) => (
-            <div key={index}>
-              <Link 
-                href={`/blogs/${category.name.toLowerCase()}`}
-                className="flex items-center justify-between py-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
-              >
-                <span className="text-xs font-medium">{category.name}</span>
-                <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                  {category.count}
-                </span>
-              </Link>
-            </div>
-          ))}
+      {categories.length > 0 && (
+        <div className="bg-white dark:bg-black rounded-xl p-5 shadow-sm border border-gray-50 dark:border-gray-800">
+          <h3 className="text-base font-bold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-100 dark:border-gray-800">Explore Topics</h3>
+          <div className="space-y-2">
+            {categories.map((category, index) => (
+              <div key={index}>
+                <Link 
+                  href={`/blogs?category=${category.name.toLowerCase()}`}
+                  className="flex items-center justify-between py-1.5 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
+                >
+                  <span className="text-xs font-medium">{category.name}</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-full group-hover:bg-primary-50 dark:group-hover:bg-primary-900/30 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {category.count}
+                  </span>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-
- 
+      )}
     </aside>
   );
 };
